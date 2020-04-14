@@ -7,32 +7,34 @@ const Navbar = () => {
   };
 
   return (
-    <div class="navbar-fixed">
-      <nav>
-        <div className="nav-wrapper blue-grey darken-4">
-          <a
-            href="/#"
-            data-target="slide-out"
-            className="sidenav-trigger show-on-large"
-          >
-            <i className="material-icons">menu</i>
-          </a>
-          <NavLink
-            to="/"
-            className="brand-logo center active"
-            style={styleNavbar}
-          >
-            CPTracker
-          </NavLink>
-          <ul id="nav-mobile" className="right">
-            <li>
-              <NavLink to="/about" style={styleNavbar}>
-                About
-              </NavLink>
-            </li>
-          </ul>
-        </div>
-      </nav>
+    <>
+      <div className="navbar-fixed">
+        <nav>
+          <div className="nav-wrapper blue-grey darken-4">
+            <a
+              href="/#"
+              data-target="slide-out"
+              className="sidenav-trigger show-on-large"
+            >
+              <i className="material-icons">menu</i>
+            </a>
+            <NavLink
+              to="/"
+              className="brand-logo center active"
+              style={styleNavbar}
+            >
+              CPTracker
+            </NavLink>
+            <ul id="nav-mobile" className="right">
+              <li>
+                <NavLink to="/about" style={styleNavbar}>
+                  About
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
 
       <ul id="slide-out" className="sidenav sidenav-close">
         <li>
@@ -73,7 +75,7 @@ const Navbar = () => {
           </a>
         </li>
       </ul>
-    </div>
+    </>
   );
 };
 

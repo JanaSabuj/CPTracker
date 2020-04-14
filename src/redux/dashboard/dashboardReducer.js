@@ -1,16 +1,10 @@
 const initialState = {
   sites: [
-    { id: 1, name: "Codeforces" },
-    { id: 2, name: "CodeChef" },
-    { id: 3, name: "AtCoder" },
-    { id: 4, name: "TopCoder" },
-    { id: 5, name: "HackerEarth" },
-    { id: 6, name: "HackerRank" },
-    { id: 7, name: "LeetCode" },
-    { id: 8, name: "CSAcademy" },
-    { id: 9, name: "FB Contests" },
-    { id: 10, name: "Google Contests" },
-    { id: 11, name: "Other Sites" }
+    { id: 1, name: ["Codeforces", "CodeChef"] },
+    { id: 2, name: ["AtCoder", "TopCoder"] },
+    { id: 3, name: ["HackerEarth", "HackerRank"] },
+    { id: 4, name: ["LeetCode", "FB Contests"] },
+    { id: 5, name: ["Google Contests", "Other Sites"] }
   ]
 };
 
