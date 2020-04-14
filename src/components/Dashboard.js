@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
+import IntroCard from "./IntroCard";
 
 const Dashboard = props => {
   const { sites } = props;
@@ -7,15 +8,17 @@ const Dashboard = props => {
   const introCards = (
     <Fragment>
       {sites.length &&
-        sites.map(el => <div className="white-text"> {el.name} </div>)}
+        sites.map(el => <IntroCard sites={sites} key={sites.id} />)}
     </Fragment>
   );
 
   return (
-    <div>
-      {console.log(sites)}
-      {introCards}
-    </div>
+    <Fragment>
+      <div className="row" style={{ height: "15px" }}>
+        {" "}
+      </div>
+      <div className="row">{introCards}</div>
+    </Fragment>
   );
 };
 
