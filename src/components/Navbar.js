@@ -1,25 +1,26 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
+  const styleNavbar = {
+    fontFamily: "Bungee"
+  };
+
   return (
     <nav>
       <div className="nav-wrapper blue-grey darken-4">
-        <a
-          href="/#"
+        <NavLink
+          to="/"
           className="brand-logo center active"
-          style={{ fontFamily: "Bungee" }}
+          style={styleNavbar}
         >
-          CP Tracker
-        </a>
-        <ul id="nav-mobile" className="left hide">
+          CPTracker
+        </NavLink>
+        <ul id="nav-mobile" className="right">
           <li>
-            <a href="sass.html">Sass</a>
-          </li>
-          <li>
-            <a href="badges.html">Components</a>
-          </li>
-          <li>
-            <a href="collapsible.html">JavaScript</a>
+            <NavLink to="/about" style={styleNavbar}>
+              About
+            </NavLink>
           </li>
         </ul>
       </div>

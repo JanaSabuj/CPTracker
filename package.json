@@ -1,12 +1,13 @@
 {
-  "name": "react",
+  "name": "cp-tracker",
   "version": "1.0.0",
-  "description": "React example starter project",
-  "keywords": ["react", "starter"],
+  "description": "",
+  "keywords": [],
   "main": "src/index.js",
   "dependencies": {
     "react": "16.12.0",
     "react-dom": "16.12.0",
+    "react-router-dom": "5.1.2",
     "react-scripts": "3.0.1"
   },
   "devDependencies": {
@@ -18,5 +19,10 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
