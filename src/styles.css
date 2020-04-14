@@ -1,7 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Megrim&family=Bungee&family=Shadows+Into+Light&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Megrim&family=Oxygen&family=Bungee&family=Shadows+Into+Light&display=swap");
 
 .App {
-  font-family: sans-serif;
+  font-family: "Oxygen", sans-serif;
   text-align: center;
-  background-color: red;
 }
