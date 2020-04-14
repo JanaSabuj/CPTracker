@@ -1,49 +1,43 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 const IntroCard = props => {
   const sites = props.info;
+  const imgPath = [
+    `../img/${sites.name[0]}.png`,
+    `../img/${sites.name[1]}.png`
+  ];
+  const styleName = { fontFamily: "Bungee", fontSize: "18px" };
   return (
-    <div class="row">
-      <div class="col s12 m2" />
-      <div class="col s12 m4">
-        <div class="card-panel grey lighten-5 z-depth-1">
-          <div class="row valign-wrapper">
-            <div class="col s4">
-              <img
-                src="../img/codeforces.png"
-                alt=""
-                class="circle responsive-img"
-              />
+    <div className="row">
+      <div className="col s12 m2" />
+      <div className="col s12 m4">
+        <div className="card-panel grey lighten-5 z-depth-1">
+          <div className="row valign-wrapper">
+            <div className="col s4">
+              <img src={imgPath[0]} alt="" className="circle responsive-img" />
             </div>
-            <div class="col s10">
-              <span class="black-text">
-                This is a square image. Add the "circle" class to it to make it
-                appear circular.
-              </span>
+            <div className="col s8">
+              <span style={styleName}>{sites.name[0]}</span>
+              <div className="divider"> </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col s12 m4">
-        <div class="card-panel grey lighten-5 z-depth-1">
-          <div class="row valign-wrapper">
-            <div class="col s4">
-              <img
-                src="../img/codeforces.png"
-                alt=""
-                class="circle responsive-img"
-              />
+      {/*  */}
+      <div className="col s12 m4">
+        <div className="card-panel grey lighten-5 z-depth-1">
+          <div className="row valign-wrapper">
+            <div className="col s4">
+              <img src={imgPath[1]} alt="" className="circle responsive-img" />
             </div>
-            <div class="col s10">
-              <span class="black-text">
-                This is a square image. Add the "circle" class to it to make it
-                appear circular.
-              </span>
+            <div className="col s8">
+              <span style={styleName}>{sites.name[1]}</span>
+              <div className="divider"> </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col s12 m2" />
+      <div className="col s12 m2" />
     </div>
   );
 };

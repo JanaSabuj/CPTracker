@@ -10,7 +10,7 @@ const Dashboard = props => {
       <div className="row" style={{ height: "15px" }}>
         {" "}
       </div>
-      {sites.length && sites.map(el => <IntroCard info={el} id={el.id} />)}
+      {sites.length && sites.map(el => <IntroCard info={el} key={el.id} />)}
     </Fragment>
   );
 };
