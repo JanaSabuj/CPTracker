@@ -6,11 +6,11 @@ const IntroCard = props => {
     `../img/${sites.name[0]}.png`,
     `../img/${sites.name[1]}.png`
   ];
-  const styleName = { fontFamily: "Bungee", fontSize: "18px" };
+  const styleName = { fontFamily: "Bungee", fontSize: "20px" };
   return (
     <div className="row">
-      <div className="col s12 m2" />
-      <div className="col s12 m4">
+      <div className="col s12 m1" />
+      <div className="col s12 m5">
         <div className="card-panel grey lighten-5 z-depth-1">
           <div className="row valign-wrapper">
             <div className="col s4">
@@ -24,7 +24,7 @@ const IntroCard = props => {
         </div>
       </div>
       {/*  */}
-      <div className="col s12 m4">
+      <div className="col s12 m5">
         <div className="card-panel grey lighten-5 z-depth-1">
           <div className="row valign-wrapper">
             <div className="col s4">
@@ -37,7 +37,7 @@ const IntroCard = props => {
           </div>
         </div>
       </div>
-      <div className="col s12 m2" />
+      <div className="col s12 m1" />
     </div>
   );
 };

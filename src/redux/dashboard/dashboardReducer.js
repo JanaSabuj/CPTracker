@@ -5,6 +5,18 @@ const initialState = {
     { id: 3, name: ["Hackerearth", "Hackerrank"] },
     { id: 4, name: ["Leetcode", "Facebook"] },
     { id: 5, name: ["Google", "Others"] }
+  ],
+  names: [
+    "Codeforces",
+    "Codechef",
+    "Atcoder",
+    "Topcoder",
+    "Hackerearth",
+    "Hackerrank",
+    "Leetcode",
+    "Facebook",
+    "Google",
+    "Others"
   ]
 };
 
