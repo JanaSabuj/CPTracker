@@ -6,6 +6,7 @@ import M from "materialize-css/dist/js/materialize.min.js";
 
 import Navbar from "./components/Navbar";
 import About from "./components/About";
+import Dashboard from "./components/Dashboard";
 
 class App extends Component {
   componentDidMount() {
@@ -19,6 +20,7 @@ class App extends Component {
         <div className="App">
           <Navbar />
           <Switch>
+            <Route exact path="/" component={Dashboard} />
             <Route exact path="/about" component={About} />
           </Switch>
         </div>
