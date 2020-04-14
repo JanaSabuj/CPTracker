@@ -1,6 +1,7 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 
 const About = () => {
+  const [buttonLink, setButtonLink] = useState("");
   const styleAbout = {
     fontSize: "20px"
   };
@@ -9,6 +10,15 @@ const About = () => {
     fontFamily: "Megrim",
     fontSize: "30px"
   };
+
+  const githubClick = () => {
+    setButtonLink("https://github.com/JanaSabuj");
+  };
+
+  const websiteClick = () => {
+    setButtonLink("https://janasabuj.github.io");
+  };
+
   return (
     <Fragment>
       <div className="row" style={{ height: "75px" }} />
@@ -28,19 +38,20 @@ const About = () => {
               </p>
             </div>
             <div className="card-action">
-              <form
-                action="https://github.com/JanaSabuj/random-advice"
-                target="_blank"
-              >
+              <form action={buttonLink} target="_blank">
                 <button
                   className="btn waves-effect waves-light brown darken-1"
                   style={{ marginRight: "10px" }}
+                  onClick={githubClick}
                 >
                   Github
                   <i className="small material-icons left">code</i>
                 </button>
 
-                <button className="btn waves-effect waves-light brown darken-1">
+                <button
+                  className="btn waves-effect waves-light brown darken-1"
+                  onClick={websiteClick}
+                >
                   Website
                   <i className="small material-icons right">fingerprint</i>
                 </button>
