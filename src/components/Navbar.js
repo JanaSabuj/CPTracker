@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
@@ -7,7 +7,7 @@ const Navbar = () => {
   };
 
   return (
-    <Fragment>
+    <div class="navbar-fixed">
       <nav>
         <div className="nav-wrapper blue-grey darken-4">
           <a
@@ -73,7 +73,7 @@ const Navbar = () => {
           </a>
         </li>
       </ul>
-    </Fragment>
+    </div>
   );
 };
 

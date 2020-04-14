@@ -3,37 +3,24 @@ import React, { Fragment } from "react";
 const IntroCard = props => {
   const sites = props.sites;
   return (
-    <Fragment>
-      {sites.id % 2 !== 0 && <div className="col s0 m1"> </div>}
-      <div class="col s12 m5">
-        <div class="card">
-          <div class="card-image">
-            <div class="col s5">
-              <img
-                src="../img/codeforcxes.png"
-                className="responsive-img circle"
-                alt="cf"
-              />
+    <div class="row">
+      <div class="col s12 m3" />
+      <div class="col s12 m6 ">
+        <div class="card-panel grey lighten-5 z-depth-1">
+          <div class="row valign-wrapper">
+            <div class="col s4">
+              <img src="../img/codeforces.png" alt="" class="circle responsive-img"/>  
             </div>
-
-            <a
-              class="btn-floating halfway-fab waves-effect waves-light red"
-              href="/#"
-            >
-              <i class="material-icons">add</i>
-            </a>
-          </div>
-          <div class="card-content">
-            <p>
-              I am a very simple card. I am good at containing small bits of
-              information. I am convenient because I require little markup to
-              use effectively.
-            </p>
+            <div class="col s10">
+              <span class="black-text">
+                This is a square image. Add the "circle" class to it to make it appear circular.
+              </span>
+            </div>
           </div>
         </div>
       </div>
-      {sites.id % 2 === 0 && <div className="col s0 m1"> </div>}
-    </Fragment>
+      <div class="col s12 m3" />
+    </div>
   );
 };
 
