@@ -1,7 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
 
-const Navbar = () => {
+import SidenavLink from "./SideNavLink";
+
+const Navbar = props => {
+  const { names } = props;
+
   const styleNavbar = {
     fontFamily: "Bungee"
   };
@@ -53,18 +58,10 @@ const Navbar = () => {
             </a>
           </div>
         </li>
-        <li>
-          <NavLink to="/about" className="waves-effect">
-            <span> Codeforces </span>
-            <i className="small material-icons">send</i>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/#" className="waves-effect">
-            <span> Codechef </span>
-            <i className="small material-icons">send</i>
-          </NavLink>
-        </li>
+
+        {names.length &&
+          names.map(el => <SidenavLink key={el.id} name={el.name} />)}
+
         <li>
           <div className="divider" />
         </li>
@@ -79,4 +76,10 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+const mapStateToProps = state => {
+  return {
+    names: state.dashboardReducer.names
+  };
+};
+
+export default connect(mapStateToProps)(Navbar);

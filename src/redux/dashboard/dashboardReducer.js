@@ -7,16 +7,16 @@ const initialState = {
     { id: 5, name: ["Google", "Others"] }
   ],
   names: [
-    "Codeforces",
-    "Codechef",
-    "Atcoder",
-    "Topcoder",
-    "Hackerearth",
-    "Hackerrank",
-    "Leetcode",
-    "Facebook",
-    "Google",
-    "Others"
+    { id: 1, name: "Codeforces" },
+    { id: 2, name: "Codechef" },
+    { id: 3, name: "Atcoder" },
+    { id: 4, name: "Topcoder" },
+    { id: 5, name: "Hackerearth" },
+    { id: 6, name: "Hackerrank" },
+    { id: 7, name: "Leetcode" },
+    { id: 8, name: "Facebook" },
+    { id: 9, name: "Google" },
+    { id: 10, name: "Others" }
   ]
 };
 
