@@ -8,6 +8,9 @@ import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Dashboard from "./components/Dashboard";
 
+import store from "./redux/store";
+import { Provider } from "react-redux";
+
 class App extends Component {
   componentDidMount() {
     const sidenav = document.querySelector("#slide-out");
@@ -16,15 +19,17 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
-        <div className="App">
-          <Navbar />
-          <Switch>
-            <Route exact path="/" component={Dashboard} />
-            <Route exact path="/about" component={About} />
-          </Switch>
-        </div>
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <div className="App">
+            <Navbar />
+            <Switch>
+              <Route exact path="/" component={Dashboard} />
+              <Route exact path="/about" component={About} />
+            </Switch>
+          </div>
+        </BrowserRouter>
+      </Provider>
     );
   }
 }
