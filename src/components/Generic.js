@@ -19,15 +19,16 @@ const Generic = props => {
         <div className="row">
           <div className="col s1 m3"> </div>
           <div className="col s10 m6">
-            <ul className="collection with-header brown darken-1">
-              <li className="collection-header active brown darken-1">
-                <h4 className="white-text">{props.siteName}</h4>
-              </li>
-              {/* {(console.log(props.siteInfo), "litt")} */}
-              {props.siteInfo.map(el => (
-                <GenericContest key={el.id} contest={el} />
-              ))}
-            </ul>
+            <div class="card brown darken-1">
+              <div class="card-content white-text">
+                <i class="small material-icons">location_on</i>
+                <span class="card-title">{props.siteName.toUpperCase()}</span>
+              </div>
+            </div>
+            {/* {(console.log(props.siteInfo), "litt")} */}
+            {props.siteInfo.map(el => (
+              <GenericContest key={el.id} contest={el} />
+            ))}
           </div>
           <div className="col s1 m3"> </div>
         </div>

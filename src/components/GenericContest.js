@@ -2,19 +2,22 @@ import React from "react";
 
 const GenericContest = props => {
   return (
-    <li className="collection-item avatar grey lighten-5">
-      <img src="images/yuna.jpg" alt="" className="circle" />
-      {console.log(props)}
-      <span className="title">{props.event}</span>
-      <p>
-        First Line
-        <br />
-        Second Line
-      </p>
-      <a href="/#" class="secondary-content">
-        <i class="material-icons">send</i>
-      </a>
-    </li>
+    <div className="card grey lighten-4">
+      <div className="card-content black-text">
+        <span className="card-title">{props.contest.event}</span>
+        <p>{props.contest.href}</p>
+      </div>
+      <div className="card-action">
+        <a
+          className="waves-effect waves-light btn pink"
+          href={props.contest.href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="material-icons right">send</i>Visit
+        </a>
+      </div>
+    </div>
   );
 };
 

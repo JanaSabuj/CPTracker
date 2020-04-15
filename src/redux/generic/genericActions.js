@@ -30,7 +30,7 @@ export const fetchUsers = name => {
       "&start__gte=" +
       left_date +
       "T00:00:00" +
-      "&order_by=start" +
+      "&order_by=-start" +
       "&" +
       clistApiKey;
 
