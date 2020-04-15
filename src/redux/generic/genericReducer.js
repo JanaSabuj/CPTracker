@@ -8,7 +8,7 @@ import {
 const initialState = {
   loading: false,
   error: "",
-  siteName: "lil-wayne",
+  siteName: "",
   siteInfo: []
 };
 

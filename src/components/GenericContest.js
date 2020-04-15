@@ -2,13 +2,17 @@ import React from "react";
 
 const GenericContest = props => {
   return (
-    <li className="collection-item">
-      <div>
-        {props.content}
-        <a href="#!" className="secondary-content">
-          <i className="material-icons">send</i>
-        </a>
-      </div>
+    <li class="collection-item avatar">
+      <img src="images/yuna.jpg" alt="" class="circle" />
+      <span class="title">Title</span>
+      <p>
+        First Line
+        <br />
+        Second Line
+      </p>
+      <a href="/#" class="secondary-content">
+        <i class="material-icons">grade</i>
+      </a>
     </li>
   );
 };

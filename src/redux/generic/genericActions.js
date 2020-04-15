@@ -13,7 +13,7 @@ import { addDays } from "../../utils/addDays";
 
 export const fetchUsers = name => {
   const nextURLfetch = resource__id => {
-    const left_limit = addDays(Date(), -180);
+    const left_limit = addDays(Date(), -90);
     const left_arr = [
       left_limit.getFullYear(),
       left_limit.getMonth() + 1,
@@ -49,12 +49,13 @@ export const fetchUsers = name => {
         const resource__id = resource.objects[0].id;
         // next axios
         const URI2 = nextURLfetch(resource__id);
-        console.log(URI2, "step2");
+        // console.log(URI2, "step2");
         return axios.get(URI2);
       })
       .then(response => {
         const allContests = response.data.objects;
-        console.log(allContests, "final");
+        // console.log(allContests, "final");
+        dispatch(setSiteName(name));
         dispatch(fetchUsersSuccess(allContests));
       })
       .catch(error => {

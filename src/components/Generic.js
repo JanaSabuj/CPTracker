@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { fetchUsers } from "../redux/generic/genericActions";
-import { setSiteName } from "../redux/generic/genericActions";
 import { connect } from "react-redux";
 import GenericContest from "./GenericContest";
 import Spinner from "./Spinner";
@@ -9,27 +8,31 @@ const Generic = props => {
   useEffect(() => {
     const site_name = props.match.params.generic_site;
     props.fetchUsers(site_name);
-    props.setSiteName(site_name);
     //eslint-disable-next-line
   }, [props.match.params.generic_site]);
 
   return (
-    <div className="container">
-      {" "}
-      <ul className="collection with-header">
-        <li className="collection-header">
-          <h4>{props.siteName}</h4>
-        </li>
-
-        {props.loading ? (
-          <Spinner />
-        ) : (
-          props.siteInfo.map(el => (
-            <GenericContest key={el.id} content={el.event} />
-          ))
-        )}
-      </ul>
-    </div>
+    <>
+      {props.loading ? (
+        <Spinner />
+      ) : (
+        <div className="row">
+          <div className="col s1 m3"> </div>
+          <div className="col s10 m6">
+            <ul className="collection with-header">
+              <li className="collection-header">
+                <h4>{props.siteName}</h4>
+              </li>
+              {(console.log(props.siteInfo), "litt")}
+              {props.siteInfo.map(el => (
+                <GenericContest key={el.id} contest={el} />
+              ))}
+            </ul>
+          </div>
+          <div className="col s1 m3"> </div>
+        </div>
+      )}
+    </>
   );
 };
 
@@ -43,8 +46,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchUsers: name => dispatch(fetchUsers(name)),
-    setSiteName: name => dispatch(setSiteName(name))
+    fetchUsers: name => dispatch(fetchUsers(name))
   };
 };
 
