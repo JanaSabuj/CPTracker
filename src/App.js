@@ -27,7 +27,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Dashboard} />
               <Route exact path="/about" component={About} />
-              <Route path="/:generic_site" component={Generic} />
+              <Route path="/:generic_site" component={Generic} uniq={"25"} />
             </Switch>
           </div>
         </BrowserRouter>
