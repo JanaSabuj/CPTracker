@@ -11,6 +11,7 @@ import Generic from "./components/Generic";
 
 import store from "./redux/store";
 import { Provider } from "react-redux";
+import Spinner from "./components/Spinner";
 
 class App extends Component {
   componentDidMount() {
@@ -41,6 +42,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Dashboard} />
               <Route exact path="/about" component={About} />
+              <Route exact path="/spinner" component={Spinner} />
               <Route path="/:generic_site" component={Generic} />
             </Switch>
           </div>
