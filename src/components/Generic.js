@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { fetchUsers } from "../redux/generic/genericActions";
-// import { setSiteName } from "../redux/generic/genericActions";
+import { setSiteName } from "../redux/generic/genericActions";
 import { connect } from "react-redux";
 import GenericContest from "./GenericContest";
 
@@ -8,19 +8,21 @@ const Generic = props => {
   useEffect(() => {
     const site_name = props.match.params.generic_site;
     console.log(site_name);
-    fetchUsers(site_name);
-    // props.setSiteName(site_name);
+    props.fetchUsers(site_name);
+    props.setSiteName(site_name);
     //eslint-disable-next-line
   }, [props.match.params.generic_site]);
 
   return (
     <div className="container">
       {" "}
-      <ul class="collection with-header">
-        <li class="collection-header">
+      <ul className="collection with-header">
+        <li className="collection-header">
           <h4>{props.siteName}</h4>
         </li>
-        <GenericContest />
+        {props.siteInfo.map(el => (
+          <GenericContest key={el.id} content={el.title} />
+        ))}
       </ul>
     </div>
   );
@@ -35,7 +37,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchUsers: name => dispatch(fetchUsers(name))
+    fetchUsers: name => dispatch(fetchUsers(name)),
+    setSiteName: name => dispatch(setSiteName(name))
   };
 };
 

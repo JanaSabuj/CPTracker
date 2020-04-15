@@ -14,6 +14,7 @@ export const fetchUsers = name => {
       .then(response => {
         // response.data is the users
         const users = response.data;
+        console.log(users, "dfdfdf");
         dispatch(fetchUsersSuccess(users));
       })
       .catch(error => {

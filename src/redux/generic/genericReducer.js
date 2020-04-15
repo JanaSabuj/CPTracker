@@ -23,8 +23,7 @@ const genericReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        siteInfo: action.payload,
-        error: ""
+        siteInfo: action.payload
       };
     case FETCH_USERS_FAILURE:
       return {
