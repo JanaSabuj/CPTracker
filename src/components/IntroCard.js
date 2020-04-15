@@ -28,7 +28,7 @@ const IntroCard = props => {
                 </div>
                 <Link
                   className="waves-effect waves-light btn grey darken-3"
-                  to="/about"
+                  to={"/" + sites.name[0].toLowerCase()}
                 >
                   Contests
                   <i className="material-icons right">code</i>
@@ -54,7 +54,7 @@ const IntroCard = props => {
                 </div>
                 <Link
                   className="waves-effect waves-light btn grey darken-3"
-                  to="/about"
+                  to={"/" + sites.name[1].toLowerCase()}
                 >
                   Contests
                   <i className="material-icons right">code</i>

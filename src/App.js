@@ -7,6 +7,7 @@ import M from "materialize-css/dist/js/materialize.min.js";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Dashboard from "./components/Dashboard";
+import Generic from "./components/Generic";
 
 import store from "./redux/store";
 import { Provider } from "react-redux";
@@ -26,6 +27,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Dashboard} />
               <Route exact path="/about" component={About} />
+              <Route exact path="/:generic_site" component={Generic} />
             </Switch>
           </div>
         </BrowserRouter>
