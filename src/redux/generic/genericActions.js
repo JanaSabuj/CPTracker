@@ -10,8 +10,9 @@ import { clistApiKey } from "../../auth/secret";
 import { clistUrl } from "../../auth/secret";
 
 export const fetchUsers = name => {
-  console.log(clistUrl);
-  const URI = clistUrl + "resource/?name__iregex=" + name + "&" + clistApiKey;
+  const proxyURL = "https://cors-anywhere.herokuapp.com/";
+  const URI =
+    proxyURL + clistUrl + "resource/?name__iregex=" + name + "&" + clistApiKey;
   console.log(URI);
   return dispatch => {
     dispatch(fetchUsersRequest());
@@ -21,18 +22,18 @@ export const fetchUsers = name => {
         // response.data is the users
         const resource = response.data;
         const resource__id = resource.objects[0].id;
-        console.log(resource__id, "dfdfdf");
         // dispatch(fetchUsersSuccess(resource));
-
         const URI2 =
           clistUrl +
-          "contest/?resource__id" +
+          "contest/?resource__id=" +
           resource__id +
+          "&" +
           name +
           "&" +
           clistApiKey;
 
-        return axios.get(URI2);
+        console.log(URI2, "step2");
+        return axios.get(proxyURL + URI2);
       })
       .then(response => {
         const allContests = response.data.objects;

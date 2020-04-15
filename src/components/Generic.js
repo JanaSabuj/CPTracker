@@ -19,7 +19,7 @@ const Generic = props => {
         <li className="collection-header">
           <h4>{props.siteName}</h4>
         </li>
-        {console.log(props.siteInfo.data, "updt")}
+
         {/* {props.siteInfo.data.map(el => (
           <GenericContest key={el.id} content={el.email} />
         ))} */}
