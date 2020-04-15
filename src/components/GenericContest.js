@@ -2,7 +2,7 @@ import React from "react";
 
 const GenericContest = props => {
   return (
-    <li class="collection-item">
+    <li className="collection-item">
       <div>
         {props.content}
         <a href="#!" className="secondary-content">

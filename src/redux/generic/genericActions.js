@@ -6,16 +6,37 @@ import {
   SET_SITE_NAME
 } from "./genericTypes";
 
+import { clistApiKey } from "../../auth/secret";
+import { clistUrl } from "../../auth/secret";
+
 export const fetchUsers = name => {
+  console.log(clistUrl);
+  const URI = clistUrl + "resource/?name__iregex=" + name + "&" + clistApiKey;
+  console.log(URI);
   return dispatch => {
     dispatch(fetchUsersRequest());
     axios
-      .get("https://jsonplaceholder.typicode.com/posts")
+      .get(URI)
       .then(response => {
         // response.data is the users
-        const users = response.data;
-        console.log(users, "dfdfdf");
-        dispatch(fetchUsersSuccess(users));
+        const resource = response.data;
+        const resource__id = resource.objects[0].id;
+        console.log(resource__id, "dfdfdf");
+        // dispatch(fetchUsersSuccess(resource));
+
+        const URI2 =
+          clistUrl +
+          "contest/?resource__id" +
+          resource__id +
+          name +
+          "&" +
+          clistApiKey;
+
+        return axios.get(URI2);
+      })
+      .then(response => {
+        const allContests = response.data.objects;
+        console.log(allContests, "final");
       })
       .catch(error => {
         // error.message is the error message

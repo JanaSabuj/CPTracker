@@ -7,7 +7,6 @@ import GenericContest from "./GenericContest";
 const Generic = props => {
   useEffect(() => {
     const site_name = props.match.params.generic_site;
-    console.log(site_name);
     props.fetchUsers(site_name);
     props.setSiteName(site_name);
     //eslint-disable-next-line
@@ -20,9 +19,10 @@ const Generic = props => {
         <li className="collection-header">
           <h4>{props.siteName}</h4>
         </li>
-        {props.siteInfo.map(el => (
-          <GenericContest key={el.id} content={el.title} />
-        ))}
+        {console.log(props.siteInfo.data, "updt")}
+        {/* {props.siteInfo.data.map(el => (
+          <GenericContest key={el.id} content={el.email} />
+        ))} */}
       </ul>
     </div>
   );
