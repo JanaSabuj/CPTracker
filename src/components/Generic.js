@@ -3,6 +3,7 @@ import { fetchUsers } from "../redux/generic/genericActions";
 import { setSiteName } from "../redux/generic/genericActions";
 import { connect } from "react-redux";
 import GenericContest from "./GenericContest";
+import Spinner from "./Spinner";
 
 const Generic = props => {
   useEffect(() => {
@@ -20,9 +21,13 @@ const Generic = props => {
           <h4>{props.siteName}</h4>
         </li>
 
-        {/* {props.siteInfo.data.map(el => (
-          <GenericContest key={el.id} content={el.email} />
-        ))} */}
+        {props.loading ? (
+          <Spinner />
+        ) : (
+          props.siteInfo.map(el => (
+            <GenericContest key={el.id} content={el.event} />
+          ))
+        )}
       </ul>
     </div>
   );
@@ -31,7 +36,8 @@ const Generic = props => {
 const mapStateToProps = state => {
   return {
     siteName: state.genericReducer.siteName,
-    siteInfo: state.genericReducer.siteInfo
+    siteInfo: state.genericReducer.siteInfo,
+    loading: state.genericReducer.loading
   };
 };
 
