@@ -19,11 +19,11 @@ const Generic = props => {
         <div className="row">
           <div className="col s1 m3"> </div>
           <div className="col s10 m6">
-            <ul className="collection with-header">
-              <li className="collection-header">
-                <h4>{props.siteName}</h4>
+            <ul className="collection with-header brown darken-1">
+              <li className="collection-header active brown darken-1">
+                <h4 className="white-text">{props.siteName}</h4>
               </li>
-              {(console.log(props.siteInfo), "litt")}
+              {/* {(console.log(props.siteInfo), "litt")} */}
               {props.siteInfo.map(el => (
                 <GenericContest key={el.id} contest={el} />
               ))}

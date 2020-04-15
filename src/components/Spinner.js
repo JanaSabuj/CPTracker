@@ -9,7 +9,7 @@ const Spinner = () => {
           <div class="card-content white-text">
             <img src="../../img/bean.gif" alt="windmill" />
             <div className="divider brown darken-1"> </div>
-            <span class="card-title">Crunching the contests for you ... </span>
+            <span class="card-title">Crunching all contests for you ... </span>
           </div>
         </div>
       </div>
