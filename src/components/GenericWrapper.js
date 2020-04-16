@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import GenericContest from "./GenericContest";
+import NoContest from "./NoContest";
 
 const GenericWrapper = props => {
   const [localState, setLocalState] = useState([]);
@@ -23,21 +24,21 @@ const GenericWrapper = props => {
   return (
     <>
       {localState.length === 0 && isDataPresent === true ? (
-        <div class="preloader-wrapper active">
-          <div class="spinner-layer spinner-red-only">
-            <div class="circle-clipper left">
-              <div class="circle" />
+        <div className="preloader-wrapper active">
+          <div className="spinner-layer spinner-red-only">
+            <div className="circle-clipper left">
+              <div className="circle" />
             </div>
-            <div class="gap-patch">
-              <div class="circle" />
+            <div className="gap-patch">
+              <div className="circle" />
             </div>
-            <div class="circle-clipper right">
-              <div class="circle" />
+            <div className="circle-clipper right">
+              <div className="circle" />
             </div>
           </div>
         </div>
       ) : !isDataPresent ? (
-        <div> No contests </div>
+        <NoContest contestName={contestName} contestType={contestType} />
       ) : (
         localState.map(contest => (
           <GenericContest

@@ -62,19 +62,21 @@ const Generic = props => {
         <div className="row">
           <div className="col s1 m3"> </div>
           <div className="col s10 m6">
-            <div class="card brown darken-1 fixed">
-              <div class="card-content white-text">
-                <i class="small material-icons yellow-text">location_on</i>
-                <span class="card-title">{props.siteName.toUpperCase()}</span>
+            <div className="card brown darken-1 fixed">
+              <div className="card-content white-text">
+                <i className="small material-icons yellow-text">location_on</i>
+                <span className="card-title">
+                  {props.siteName.toUpperCase()}
+                </span>
               </div>
-              <div class="card-tabs blue-grey">
-                <ul class="tabs tabs-fixed-width">
-                  <li class="tab">
+              <div className="card-tabs blue-grey">
+                <ul className="tabs tabs-fixed-width">
+                  <li className="tab">
                     <Link to={props.match.url + "/future"} style={subLinkStyle}>
                       Future
                     </Link>
                   </li>
-                  <li class="tab">
+                  <li className="tab">
                     <Link
                       className="active"
                       to={props.match.url + "/live"}
@@ -83,7 +85,7 @@ const Generic = props => {
                       Live
                     </Link>
                   </li>
-                  <li class="tab">
+                  <li className="tab">
                     <Link
                       to={props.match.url + "/past"}
                       className=""
@@ -104,6 +106,7 @@ const Generic = props => {
               path={props.match.url + "/future"}
               render={GenericWrapperWithPropsFuture}
             />
+            {/* <Redirect from="/steps" exact to="/steps/whatever" /> */}
             <Route
               path={props.match.url + "/past"}
               render={GenericWrapperWithPropsPast}

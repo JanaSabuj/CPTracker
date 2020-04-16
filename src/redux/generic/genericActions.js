@@ -23,7 +23,6 @@ export const fetchUsers = name => {
     ];
 
     const left_date = left_arr.join("-");
-    console.log(left_date);
     const URI2 =
       proxyURL +
       clistUrl +
