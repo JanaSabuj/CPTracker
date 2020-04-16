@@ -7,7 +7,8 @@ const Spinner = () => {
       <div class="col s12 m6">
         <div class="card brown darken-1">
           <div class="card-content white-text">
-            <img src="../../img/bean.gif" alt="windmill" />
+            {/* <img src="../../img/bean.gif" alt="windmill" /> */}
+            <div class="lds-hourglass" />
             <div className="divider brown darken-1"> </div>
             <span class="card-title">Crunching all contests for you ... </span>
           </div>
