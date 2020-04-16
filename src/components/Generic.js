@@ -5,13 +5,13 @@ import GenericContest from "./GenericContest";
 import Spinner from "./Spinner";
 import NoContest from "./NoContest";
 import { Link, Route } from "react-router-dom";
+import { epochCalculation } from "../utils/epochCalculation";
 
 const Generic = props => {
   useEffect(() => {
     const site_name = props.match.params.generic_site;
     props.fetchUsers(site_name);
     console.log(props.siteInfo);
-
     //eslint-disable-next-line
   }, [props.match.params.generic_site]);
 
@@ -19,6 +19,30 @@ const Generic = props => {
     // fontWeight: "bold",
     fontFamily: "Oxygen",
     color: "black"
+  };
+
+  const segregateContests = () => {
+    let allContests = props.siteInfo;
+    console.log(allContests);
+
+    let tempObj = {
+      live: [],
+      past: [],
+      future: []
+    }; // will be named codechef later
+
+    for (let i = 0; i < allContests.length; i++) {
+      const { end, start } = allContests[i];
+      const { startEpoch, endEpoch, presentEpoch } = epochCalculation(
+        start,
+        end
+      );
+
+      if (presentEpoch < startEpoch) tempObj["future"].push(allContests[i]);
+      else if (presentEpoch <= endEpoch) tempObj["live"].push(allContests[i]);
+      else tempObj["past"].push(allContests[i]);
+      console.log(tempObj);
+    }
   };
 
   return (
@@ -62,8 +86,10 @@ const Generic = props => {
                 </ul>
               </div>
             </div>
-
-            <Route path={props.match.url + "/:status"} component={Spinner} />
+            {props.siteInfo.length && segregateContests()}
+            <Route path={props.match.url + "/live"} component={Spinner} />
+            <Route path={props.match.url + "/future"} component={Spinner} />
+            <Route path={props.match.url + "/past"} component={Spinner} />
 
             {/* {props.siteInfo.length === 0 ? (
               <NoContest name={props.siteName} />
