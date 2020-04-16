@@ -8,7 +8,11 @@ const GenericContest = props => {
   const { contest } = props;
   const { duration, end, event, href, id, start } = contest;
   const startDate = new Date(start + "Z");
-  const startEpoch = +new Date(start + +Z);
+  const startEpoch = startDate.getTime();
+  const endDate = new Date(end + "Z");
+  const endEpoch = endDate.getTime();
+  const presentDate = new Date();
+  const presentEpoch = presentDate.getTime();
   return (
     <div className="card brown lighten-5 hoverable">
       <div className="card-content black-text">
@@ -19,13 +23,15 @@ const GenericContest = props => {
         <p style={{ fontFamily: "Oxygen" }}>
           <span style={{ fontWeight: "bold" }}>Start Date: </span>
           <Moment date={startDate.toString()} local /> <br />
+          <span style={{ fontWeight: "bold" }}>End Date: </span>
+          <Moment date={endDate.toString()} local /> <br />
           <span style={{ fontWeight: "bold" }}>Start/End: </span>
           <Moment date={startDate} fromNow />
           <br />
           <span style={{ fontWeight: "bold" }}> Duration: </span>
           {durationModified(duration)}
           <span style={{ fontWeight: "bold" }}> Status: </span>
-          {startEpoch}
+          {presentEpoch - startEpoch}
         </p>{" "}
       </div>
       <div className="card-action">
