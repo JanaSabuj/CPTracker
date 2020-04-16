@@ -7,14 +7,8 @@ import { durationModified } from "../utils/durationModified";
 
 const GenericContest = props => {
   const { contest, contestType } = props;
-  const { duration, end, event, href, id, start } = contest;
-  const {
-    startDate,
-    endDate,
-    presentDate,
-    startEpoch,
-    presentEpoch
-  } = epochCalculation(start, end);
+  const { duration, end, event, href, start } = contest;
+  const { startDate, endDate } = epochCalculation(start, end);
 
   const cssColors = {
     live: "green lighten-2",
@@ -30,18 +24,24 @@ const GenericContest = props => {
         <span className="card-title" style={{ fontWeight: "bold" }}>
           {event}
         </span>
-        <p style={{ fontFamily: "Oxygen" }}>
-          <span style={{ fontWeight: "bold" }}>Start Date: </span>
+        <p style={{ fontFamily: "Oxygen", fontSize: "15px" }}>
+          <span style={{ fontWeight: "bolder" }}>Start Date: </span>
           <Moment date={startDate.toString()} local /> <br />
           <span style={{ fontWeight: "bold" }}>End Date: </span>
           <Moment date={endDate.toString()} local /> <br />
-          <span style={{ fontWeight: "bold" }}>Start/End: </span>
+          {contestType === "future" ? (
+            <span style={{ fontWeight: "bold" }}> Starts: </span>
+          ) : contestType === "live" ? (
+            <span style={{ fontWeight: "bold" }}> Running since: </span>
+          ) : (
+            <span style={{ fontWeight: "bold" }}> Ended: </span>
+          )}
           <Moment date={startDate} fromNow />
           <br />
           <span style={{ fontWeight: "bold" }}> Duration: </span>
           {durationModified(duration)} <br />
           <span style={{ fontWeight: "bold" }}> Status: </span>
-          {presentEpoch - startEpoch}
+          {contestType.toUpperCase()}
         </p>{" "}
       </div>
       <div className="card-action">

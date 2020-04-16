@@ -80,7 +80,7 @@ const Generic = props => {
         <div className="row">
           <div className="col s1 m3"> </div>
           <div className="col s10 m6">
-            <div className="card brown darken-1">
+            <div className="card brown darken-1 hoverable">
               <div className="card-content white-text">
                 <i className="small material-icons yellow-text">location_on</i>
                 <span className="card-title">
