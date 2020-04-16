@@ -23,7 +23,6 @@ const Generic = props => {
 
     if (!found) {
       props.fetchUsers(site_name); // main func call
-      console.log("Calling", site_name.toLowerCase());
     } else {
       props.setSiteName(site_name);
     }

@@ -15,7 +15,6 @@ const GenericWrapper = props => {
         break;
       }
     }
-    console.log(useful, contestType, "here");
 
     setLocalState(useful);
     useful.length > 0 ? setIsDataPresent(true) : setIsDataPresent(false);

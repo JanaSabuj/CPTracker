@@ -24,7 +24,6 @@ export const fetchUsers = name => {
 
     const left_date = left_arr.join("-");
     const URI2 =
-      proxyURL +
       clistUrl +
       "contest/?resource__id=" +
       resource__id +
@@ -63,8 +62,7 @@ export const fetchUsers = name => {
     dispatch(setLocalContest(siteName.toLowerCase(), tempObj));
   };
 
-  const URI1 =
-    proxyURL + clistUrl + "resource/?name__iregex=" + name + "&" + clistApiKey;
+  const URI1 = clistUrl + "resource/?name__iregex=" + name + "&" + clistApiKey;
   return dispatch => {
     dispatch(fetchUsersRequest());
     axios
