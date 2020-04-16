@@ -13,7 +13,7 @@ const About = () => {
   };
 
   const githubClick = () => {
-    setButtonLink("https://github.com/JanaSabuj");
+    setButtonLink("https://github.com/JanaSabuj/CPTracker");
   };
 
   const websiteClick = () => {
