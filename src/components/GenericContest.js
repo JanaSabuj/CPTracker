@@ -2,24 +2,28 @@ import React from "react";
 import Moment from "react-moment";
 import "moment-timezone";
 
+import { epochCalculation } from "../utils/epochCalculation";
 import { durationModified } from "../utils/durationModified";
 
 const GenericContest = props => {
   const { contest } = props;
   const { duration, end, event, href, id, start } = contest;
-  const startDate = new Date(start + "Z");
-  const startEpoch = startDate.getTime();
-  const endDate = new Date(end + "Z");
-  const endEpoch = endDate.getTime();
-  const presentDate = new Date();
-  const presentEpoch = presentDate.getTime();
+  const {
+    startDate,
+    endDate,
+    presentDate,
+    startEpoch,
+    endEpoch,
+    presentEpoch
+  } = epochCalculation(start, end);
+
   return (
     <div className="card brown lighten-5 hoverable">
       <div className="card-content black-text">
         <span className="card-title" style={{ fontWeight: "bold" }}>
           {event}
         </span>
-        {/* {console.log(startDate)} */}
+        {console.log(epochCalculation(start, end))}
         <p style={{ fontFamily: "Oxygen" }}>
           <span style={{ fontWeight: "bold" }}>Start Date: </span>
           <Moment date={startDate.toString()} local /> <br />
