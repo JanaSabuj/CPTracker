@@ -6,6 +6,7 @@ import { Link, Route } from "react-router-dom";
 import { setLocalContest } from "../redux/generic/genericActions";
 import GenericWrapper from "./GenericWrapper";
 import { setSiteName } from "../redux/generic/genericActions";
+import Error from "../components/Error";
 
 const Generic = props => {
   useEffect(() => {
@@ -73,6 +74,8 @@ const Generic = props => {
     <>
       {props.loading ? (
         <Spinner />
+      ) : props.error ? (
+        <Error message={props.error} />
       ) : (
         <div className="row">
           <div className="col s1 m3"> </div>
@@ -139,7 +142,8 @@ const mapStateToProps = state => {
     siteName: state.genericReducer.siteName,
     siteInfo: state.genericReducer.siteInfo,
     loading: state.genericReducer.loading,
-    localStorage: state.genericReducer.localStorage
+    localStorage: state.genericReducer.localStorage,
+    error: state.genericReducer.error
   };
 };
 

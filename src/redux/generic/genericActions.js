@@ -88,7 +88,11 @@ export const fetchUsers = name => {
       })
       .catch(error => {
         // error.message is the error message
-        dispatch(fetchUsersFailure("Hang on right there tourist !!!!"));
+        dispatch(
+          fetchUsersFailure(
+            "The server responded with a WA !!! Please try again"
+          )
+        );
       });
   };
 };

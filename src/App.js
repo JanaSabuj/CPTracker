@@ -12,6 +12,7 @@ import Generic from "./components/Generic";
 import store from "./redux/store";
 import { Provider } from "react-redux";
 import Spinner from "./components/Spinner";
+import Axios from "axios";
 
 class App extends Component {
   componentDidMount() {
