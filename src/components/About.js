@@ -26,8 +26,8 @@ const About = () => {
       <div className="row" style={styleAbout}>
         <div className="col s0 m3"> </div>
         <div className="col s12 m6">
-          <div className="card grey darken-1">
-            <div className="card-content white-text">
+          <div className="card grey lighten-3 hoverable">
+            <div className="card-content black-text">
               <span className="card-title">
                 {" "}
                 <i className="material-icons red-text">favorite</i>

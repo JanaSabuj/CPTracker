@@ -13,7 +13,7 @@ const IntroCard = props => {
       <div className="row">
         <div className="col s12 m1" />
         <div className="col s12 m5">
-          <div className="card-panel brown lighten-5 z-depth-1">
+          <div className="card-panel brown lighten-5 z-depth-1 hoverable">
             <div className="row valign-wrapper">
               <div className="col s4">
                 <img
@@ -39,7 +39,7 @@ const IntroCard = props => {
         </div>
         {/*  */}
         <div className="col s12 m5">
-          <div className="card-panel grey lighten-5 z-depth-1">
+          <div className="card-panel grey lighten-5 z-depth-1 hoverable">
             <div className="row valign-wrapper">
               <div className="col s4">
                 <img
