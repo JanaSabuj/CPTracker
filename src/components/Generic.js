@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { fetchUsers } from "../redux/generic/genericActions";
 import { connect } from "react-redux";
 import Spinner from "./Spinner";
@@ -80,7 +80,7 @@ const Generic = props => {
         <div className="row">
           <div className="col s1 m3"> </div>
           <div className="col s10 m6">
-            <div className="card brown darken-1 fixed">
+            <div className="card brown darken-1">
               <div className="card-content white-text">
                 <i className="small material-icons yellow-text">location_on</i>
                 <span className="card-title">
@@ -89,26 +89,18 @@ const Generic = props => {
               </div>
               <div className="card-tabs blue-grey">
                 <ul className="tabs tabs-fixed-width">
-                  <li className="tab">
+                  <li className="tab btn yellow darken-2 waves-effect waves-light">
                     <Link to={props.match.url + "/future"} style={subLinkStyle}>
                       Future
                     </Link>
                   </li>
-                  <li className="tab">
-                    <Link
-                      className="active"
-                      to={props.match.url + "/live"}
-                      style={subLinkStyle}
-                    >
+                  <li className="tab btn green lighten-2 waves-effect waves-light">
+                    <Link to={props.match.url + "/live"} style={subLinkStyle}>
                       Live
                     </Link>
                   </li>
-                  <li className="tab">
-                    <Link
-                      to={props.match.url + "/past"}
-                      className=""
-                      style={subLinkStyle}
-                    >
+                  <li className="tab btn red lighten-1 waves-effect waves-light">
+                    <Link to={props.match.url + "/past"} style={subLinkStyle}>
                       Past
                     </Link>
                   </li>
