@@ -5,7 +5,7 @@ import GenericContest from "./GenericContest";
 import Spinner from "./Spinner";
 import NoContest from "./NoContest";
 import { Link, Route } from "react-router-dom";
-import { epochCalculation } from "../utils/epochCalculation";
+import { setLocalContest } from "../redux/generic/genericActions";
 
 const Generic = props => {
   useEffect(() => {
@@ -20,31 +20,6 @@ const Generic = props => {
     fontFamily: "Oxygen",
     color: "black"
   };
-
-  const segregateContests = () => {
-    let allContests = props.siteInfo;
-    console.log(allContests);
-
-    let tempObj = {
-      live: [],
-      past: [],
-      future: []
-    }; // will be named codechef later
-
-    for (let i = 0; i < allContests.length; i++) {
-      const { end, start } = allContests[i];
-      const { startEpoch, endEpoch, presentEpoch } = epochCalculation(
-        start,
-        end
-      );
-
-      if (presentEpoch < startEpoch) tempObj["future"].push(allContests[i]);
-      else if (presentEpoch <= endEpoch) tempObj["live"].push(allContests[i]);
-      else tempObj["past"].push(allContests[i]);
-      console.log(tempObj);
-    }
-  };
-
   return (
     <>
       {props.loading ? (
@@ -86,7 +61,8 @@ const Generic = props => {
                 </ul>
               </div>
             </div>
-            {props.siteInfo.length && segregateContests()}
+
+            {console.log(props.localStorage)}
             <Route path={props.match.url + "/live"} component={Spinner} />
             <Route path={props.match.url + "/future"} component={Spinner} />
             <Route path={props.match.url + "/past"} component={Spinner} />
@@ -110,13 +86,15 @@ const mapStateToProps = state => {
   return {
     siteName: state.genericReducer.siteName,
     siteInfo: state.genericReducer.siteInfo,
-    loading: state.genericReducer.loading
+    loading: state.genericReducer.loading,
+    localStorage: state.genericReducer.localStorage
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchUsers: name => dispatch(fetchUsers(name))
+    fetchUsers: name => dispatch(fetchUsers(name)),
+    setLocalContest: (name, data) => dispatch(setLocalContest(name, data))
   };
 };
 

@@ -2,7 +2,8 @@ import {
   FETCH_USERS_REQUEST,
   FETCH_USERS_SUCCESS,
   FETCH_USERS_FAILURE,
-  SET_SITE_NAME
+  SET_SITE_NAME,
+  SET_LOCAL_CONTEST
 } from "./genericTypes";
 
 const initialState = {
@@ -10,7 +11,7 @@ const initialState = {
   error: "",
   siteName: "",
   siteInfo: [],
-  localStorage: {}
+  localStorage: []
 };
 
 const genericReducer = (state = initialState, action) => {
@@ -37,6 +38,14 @@ const genericReducer = (state = initialState, action) => {
       return {
         ...state,
         siteName: action.payload
+      };
+    case SET_LOCAL_CONTEST:
+      const name = action.payload[0];
+      const data = action.payload[1];
+      return {
+        ...state,
+        loading: false,
+        localStorage: [...state.localStorage, { name: name, data: data }]
       };
     default:
       return state;
