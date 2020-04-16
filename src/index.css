@@ -9,7 +9,7 @@ body {
   background: url(/img/anime.jpg) no-repeat;
   background-size: cover;
   /* background-size: 100%; */
-  background-position: center;
+  /* background-position: center; */
   background-attachment: fixed;
   /* background-color: yellow; */
 
