@@ -66,7 +66,7 @@ const Navbar = props => {
           <div className="divider" />
         </li>
         <li>
-          <NavLink to="/about" className="waves-effect waves-light">
+          <NavLink to="/about" >
             <i className="small material-icons red-text pulse">favorite</i>
             Built by
             <span className="red-text"> Sabuj Jana</span>

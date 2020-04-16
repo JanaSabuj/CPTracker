@@ -5,7 +5,7 @@ const SideNavLink = ({ name }) => {
   const goToLink = "/" + name;
   return (
     <li>
-      <NavLink to={goToLink} className="waves-effect">
+      <NavLink to={goToLink} className="">
         <span style={{ fontFamily: "Bungee" }}> {name.toUpperCase()} </span>
         <i className="small material-icons red-text">send</i>
       </NavLink>
