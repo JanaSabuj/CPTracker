@@ -4,7 +4,7 @@ const initialState = {
     { id: 2, name: ["Atcoder", "Topcoder"] },
     { id: 3, name: ["Hackerearth", "Hackerrank"] },
     { id: 4, name: ["Leetcode", "Facebook"] },
-    { id: 5, name: ["Google", "Others"] }
+    { id: 5, name: ["Google", "Csacademy"] }
   ],
   names: [
     { id: 1, name: "Codeforces" },
@@ -16,7 +16,7 @@ const initialState = {
     { id: 7, name: "Leetcode" },
     { id: 8, name: "Facebook" },
     { id: 9, name: "Google" },
-    { id: 10, name: "Others" }
+    { id: 10, name: "Csacademy" }
   ]
 };
 
