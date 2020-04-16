@@ -17,6 +17,8 @@ class App extends Component {
   componentDidMount() {
     const sidenav = document.querySelector("#slide-out");
     M.Sidenav.init(sidenav, {});
+
+    console.log(Date());
   }
 
   render() {

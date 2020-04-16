@@ -3,6 +3,7 @@ import { fetchUsers } from "../redux/generic/genericActions";
 import { connect } from "react-redux";
 import GenericContest from "./GenericContest";
 import Spinner from "./Spinner";
+import NoContest from "./NoContest";
 
 const Generic = props => {
   useEffect(() => {
@@ -21,14 +22,18 @@ const Generic = props => {
           <div className="col s10 m6">
             <div class="card brown darken-1">
               <div class="card-content white-text">
-                <i class="small material-icons">location_on</i>
+                <i class="small material-icons yellow-text">location_on</i>
                 <span class="card-title">{props.siteName.toUpperCase()}</span>
               </div>
             </div>
             {/* {(console.log(props.siteInfo), "litt")} */}
-            {props.siteInfo.map(el => (
-              <GenericContest key={el.id} contest={el} />
-            ))}
+            {props.siteInfo.length === 0 ? (
+              <NoContest name={props.siteName} />
+            ) : (
+              props.siteInfo.map(el => (
+                <GenericContest key={el.id} contest={el} />
+              ))
+            )}
           </div>
           <div className="col s1 m3"> </div>
         </div>
