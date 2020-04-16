@@ -9,7 +9,8 @@ const initialState = {
   loading: false,
   error: "",
   siteName: "",
-  siteInfo: []
+  siteInfo: [],
+  localStorage: {}
 };
 
 const genericReducer = (state = initialState, action) => {

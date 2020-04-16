@@ -4,12 +4,14 @@ import { connect } from "react-redux";
 import GenericContest from "./GenericContest";
 import Spinner from "./Spinner";
 import NoContest from "./NoContest";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 
 const Generic = props => {
   useEffect(() => {
     const site_name = props.match.params.generic_site;
     props.fetchUsers(site_name);
+    console.log(props.siteInfo);
+
     //eslint-disable-next-line
   }, [props.match.params.generic_site]);
 
@@ -35,7 +37,6 @@ const Generic = props => {
               <div class="card-tabs blue-grey">
                 <ul class="tabs tabs-fixed-width">
                   <li class="tab">
-                    {console.log(props.match)}
                     <Link to={props.match.url + "/future"} style={subLinkStyle}>
                       Future
                     </Link>
@@ -61,14 +62,16 @@ const Generic = props => {
                 </ul>
               </div>
             </div>
-            {/* {(console.log(props.siteInfo), "litt")} */}
-            {props.siteInfo.length === 0 ? (
+
+            <Route path={props.match.url + "/:status"} component={Spinner} />
+
+            {/* {props.siteInfo.length === 0 ? (
               <NoContest name={props.siteName} />
             ) : (
               props.siteInfo.map(el => (
                 <GenericContest key={el.id} contest={el} />
               ))
-            )}
+            )} */}
           </div>
           <div className="col s1 m3"> </div>
         </div>
