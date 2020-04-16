@@ -24,8 +24,8 @@ const GenericContest = props => {
         <span className="card-title" style={{ fontWeight: "bold" }}>
           {event}
         </span>
-        <p style={{ fontFamily: "Oxygen", fontSize: "15px" }}>
-          <span style={{ fontWeight: "bolder" }}>Start Date: </span>
+        <p style={{ fontSize: "15px" }}>
+          <span style={{ fontWeight: "bold" }}>Start Date: </span>
           <Moment date={startDate.toString()} local /> <br />
           <span style={{ fontWeight: "bold" }}>End Date: </span>
           <Moment date={endDate.toString()} local /> <br />
