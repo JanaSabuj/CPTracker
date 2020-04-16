@@ -17,13 +17,14 @@ const GenericContest = props => {
     presentEpoch
   } = epochCalculation(start, end);
 
+  // const contestStatus = contestStatusCalculation(startEpoch, endEpoch, presentEpoch)
+
   return (
     <div className="card brown lighten-5 hoverable">
       <div className="card-content black-text">
         <span className="card-title" style={{ fontWeight: "bold" }}>
           {event}
         </span>
-        {console.log(epochCalculation(start, end))}
         <p style={{ fontFamily: "Oxygen" }}>
           <span style={{ fontWeight: "bold" }}>Start Date: </span>
           <Moment date={startDate.toString()} local /> <br />
@@ -33,7 +34,7 @@ const GenericContest = props => {
           <Moment date={startDate} fromNow />
           <br />
           <span style={{ fontWeight: "bold" }}> Duration: </span>
-          {durationModified(duration)}
+          {durationModified(duration)} <br />
           <span style={{ fontWeight: "bold" }}> Status: </span>
           {presentEpoch - startEpoch}
         </p>{" "}
