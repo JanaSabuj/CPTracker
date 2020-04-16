@@ -6,6 +6,7 @@ import Spinner from "./Spinner";
 import NoContest from "./NoContest";
 import { Link, Route } from "react-router-dom";
 import { setLocalContest } from "../redux/generic/genericActions";
+import GenericWrapper from "./GenericWrapper";
 
 const Generic = props => {
   useEffect(() => {
@@ -20,6 +21,17 @@ const Generic = props => {
     fontFamily: "Oxygen",
     color: "black"
   };
+
+  const MyProductPage = props1 => {
+    return (
+      <GenericWrapper
+        data={props.localStorage}
+        contestType="future"
+        {...props1}
+      />
+    );
+  };
+
   return (
     <>
       {props.loading ? (
@@ -64,16 +76,8 @@ const Generic = props => {
 
             {console.log(props.localStorage)}
             <Route path={props.match.url + "/live"} component={Spinner} />
-            <Route path={props.match.url + "/future"} component={Spinner} />
+            <Route path={props.match.url + "/future"} render={MyProductPage} />
             <Route path={props.match.url + "/past"} component={Spinner} />
-
-            {/* {props.siteInfo.length === 0 ? (
-              <NoContest name={props.siteName} />
-            ) : (
-              props.siteInfo.map(el => (
-                <GenericContest key={el.id} contest={el} />
-              ))
-            )} */}
           </div>
           <div className="col s1 m3"> </div>
         </div>
