@@ -1,6 +1,8 @@
 import React from "react";
 import Moment from "react-moment";
 import "moment-timezone";
+import ReactDOM from "react-dom";
+import Countdown from "react-countdown";
 
 import { epochCalculation } from "../utils/epochCalculation";
 import { durationModified } from "../utils/durationModified";
@@ -40,6 +42,18 @@ const GenericContest = props => {
           <br />
           <span style={{ fontWeight: "bold" }}> Duration: </span>
           {durationModified(duration)} <br />
+          {contestType === "future" && (
+            <>
+              <span style={{ fontWeight: "bold" }}> Countdown: </span>
+              <Countdown
+                date={startDate}
+                intervalDelay={0}
+                precision={3}
+                // renderer={props => <div>{props.total}</div>}
+              />
+              <br />
+            </>
+          )}
           <span style={{ fontWeight: "bold" }}> Status: </span>
           {contestType.toUpperCase()}
         </p>{" "}
