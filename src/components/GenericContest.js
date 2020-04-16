@@ -6,21 +6,26 @@ import { epochCalculation } from "../utils/epochCalculation";
 import { durationModified } from "../utils/durationModified";
 
 const GenericContest = props => {
-  const { contest } = props;
+  const { contest, contestType } = props;
   const { duration, end, event, href, id, start } = contest;
   const {
     startDate,
     endDate,
     presentDate,
     startEpoch,
-    endEpoch,
     presentEpoch
   } = epochCalculation(start, end);
+
+  const cssColors = {
+    live: "green lighten-2",
+    past: "red accent-1",
+    future: "yellow lighten-2"
+  };
 
   // const contestStatus = contestStatusCalculation(startEpoch, endEpoch, presentEpoch)
 
   return (
-    <div className="card brown lighten-5 hoverable">
+    <div className={"card " + cssColors[contestType] + " hoverable"}>
       <div className="card-content black-text">
         <span className="card-title" style={{ fontWeight: "bold" }}>
           {event}

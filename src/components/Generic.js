@@ -11,8 +11,7 @@ import GenericWrapper from "./GenericWrapper";
 const Generic = props => {
   useEffect(() => {
     const site_name = props.match.params.generic_site;
-    props.fetchUsers(site_name);
-    console.log(props.siteInfo);
+    props.fetchUsers(site_name); // main func call
     //eslint-disable-next-line
   }, [props.match.params.generic_site]);
 
@@ -22,11 +21,34 @@ const Generic = props => {
     color: "black"
   };
 
-  const MyProductPage = props1 => {
+  const GenericWrapperWithPropsFuture = props1 => {
     return (
       <GenericWrapper
         data={props.localStorage}
         contestType="future"
+        contestName={props.siteName.toLowerCase()}
+        {...props1}
+      />
+    );
+  };
+
+  const GenericWrapperWithPropsLive = props1 => {
+    return (
+      <GenericWrapper
+        data={props.localStorage}
+        contestType="live"
+        contestName={props.siteName.toLowerCase()}
+        {...props1}
+      />
+    );
+  };
+
+  const GenericWrapperWithPropsPast = props1 => {
+    return (
+      <GenericWrapper
+        data={props.localStorage}
+        contestType="past"
+        contestName={props.siteName.toLowerCase()}
         {...props1}
       />
     );
@@ -40,7 +62,7 @@ const Generic = props => {
         <div className="row">
           <div className="col s1 m3"> </div>
           <div className="col s10 m6">
-            <div class="card brown darken-1">
+            <div class="card brown darken-1 fixed">
               <div class="card-content white-text">
                 <i class="small material-icons yellow-text">location_on</i>
                 <span class="card-title">{props.siteName.toUpperCase()}</span>
@@ -73,11 +95,19 @@ const Generic = props => {
                 </ul>
               </div>
             </div>
-
-            {console.log(props.localStorage)}
-            <Route path={props.match.url + "/live"} component={Spinner} />
-            <Route path={props.match.url + "/future"} render={MyProductPage} />
-            <Route path={props.match.url + "/past"} component={Spinner} />
+            {/* // sub Routes */}
+            <Route
+              path={props.match.url + "/live"}
+              render={GenericWrapperWithPropsLive}
+            />
+            <Route
+              path={props.match.url + "/future"}
+              render={GenericWrapperWithPropsFuture}
+            />
+            <Route
+              path={props.match.url + "/past"}
+              render={GenericWrapperWithPropsPast}
+            />
           </div>
           <div className="col s1 m3"> </div>
         </div>
