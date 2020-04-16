@@ -2,15 +2,17 @@ import React from "react";
 
 const Spinner = () => {
   return (
-    <div class="row container">
+    <div className="row container">
       <div className="col s0 m3"> </div>
-      <div class="col s12 m6">
-        <div class="card brown darken-1">
-          <div class="card-content white-text">
+      <div className="col s12 m6">
+        <div className="card brown darken-1">
+          <div className="card-content white-text">
             {/* <img src="../../img/bean.gif" alt="windmill" /> */}
-            <div class="lds-hourglass" />
+            <div className="lds-hourglass" />
             <div className="divider brown darken-1"> </div>
-            <span class="card-title">Crunching all contests for you ... </span>
+            <span className="card-title">
+              Crunching all contests for you ...{" "}
+            </span>
           </div>
         </div>
       </div>

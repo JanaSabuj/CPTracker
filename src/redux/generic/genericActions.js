@@ -59,6 +59,7 @@ export const fetchUsers = name => {
       // console.log(tempObj);
       // console.log(props.siteName.toLowerCase());
     }
+    tempObj["future"].reverse();
     dispatch(setLocalContest(siteName.toLowerCase(), tempObj));
   };
 

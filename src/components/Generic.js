@@ -1,17 +1,32 @@
 import React, { useEffect } from "react";
 import { fetchUsers } from "../redux/generic/genericActions";
 import { connect } from "react-redux";
-import GenericContest from "./GenericContest";
 import Spinner from "./Spinner";
-import NoContest from "./NoContest";
 import { Link, Route } from "react-router-dom";
 import { setLocalContest } from "../redux/generic/genericActions";
 import GenericWrapper from "./GenericWrapper";
+import { setSiteName } from "../redux/generic/genericActions";
 
 const Generic = props => {
   useEffect(() => {
     const site_name = props.match.params.generic_site;
-    props.fetchUsers(site_name); // main func call
+
+    let found = false;
+    const data = props.localStorage;
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].name === site_name.toLowerCase()) {
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      props.fetchUsers(site_name); // main func call
+      console.log("Calling", site_name.toLowerCase());
+    } else {
+      props.setSiteName(site_name);
+    }
+
     //eslint-disable-next-line
   }, [props.match.params.generic_site]);
 
@@ -131,7 +146,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchUsers: name => dispatch(fetchUsers(name)),
-    setLocalContest: (name, data) => dispatch(setLocalContest(name, data))
+    setLocalContest: (name, data) => dispatch(setLocalContest(name, data)),
+    setSiteName: name => dispatch(setSiteName(name))
   };
 };
 

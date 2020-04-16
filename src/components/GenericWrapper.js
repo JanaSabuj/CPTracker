@@ -8,14 +8,15 @@ const GenericWrapper = props => {
   const { data, contestType, contestName } = props;
   useEffect(() => {
     let useful = [];
+
     for (let i = 0; i < data.length; i++) {
       if (data[i].name === contestName) {
         useful = data[i].data[contestType];
         break;
       }
-      setLocalState(useful);
     }
-    // console.log(useful, contestType, "here");
+    console.log(useful, contestType, "here");
+
     setLocalState(useful);
     useful.length > 0 ? setIsDataPresent(true) : setIsDataPresent(false);
     // eslint-disable-next-line

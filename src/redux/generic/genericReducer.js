@@ -10,7 +10,6 @@ const initialState = {
   loading: false,
   error: "",
   siteName: "",
-  siteInfo: [],
   localStorage: []
 };
 
