@@ -8,7 +8,8 @@ const About = () => {
 
   const styleName = {
     fontFamily: "Megrim",
-    fontSize: "30px"
+    fontSize: "30px",
+    fontWeight: "bold"
   };
 
   const githubClick = () => {
@@ -33,7 +34,10 @@ const About = () => {
               </span>
               <p>App Version 1.0.0</p>
               <p>
-                Built by <span style={styleName}>Sabuj Jana</span>{" "}
+                Built by{" "}
+                <span style={styleName} className="red-text">
+                  Sabuj Jana
+                </span>{" "}
                 <i className="tiny material-icons">copyright</i> 2020
               </p>
             </div>

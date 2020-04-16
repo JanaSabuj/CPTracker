@@ -53,7 +53,7 @@ const Navbar = props => {
             <a href="/#">
               <span className="white-text name">Coder</span>
             </a>
-            <a href="#email">
+            <a href="/#">
               <span className="white-text email">Talk is Cheap.</span>
             </a>
           </div>
@@ -66,10 +66,11 @@ const Navbar = props => {
           <div className="divider" />
         </li>
         <li>
-          <a href="/#" className="subheader">
-            <i className="small material-icons red-text">favorite</i> Built by
-            Sabuj Jana.
-          </a>
+          <NavLink to="/about" className="waves-effect waves-light">
+            <i className="small material-icons red-text pulse">favorite</i>
+            Built by
+            <span className="red-text"> Sabuj Jana</span>
+          </NavLink>
         </li>
       </ul>
     </>
