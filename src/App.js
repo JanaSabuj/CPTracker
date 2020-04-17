@@ -16,25 +16,22 @@ import { Planets } from "react-preloaders";
 import StartLoader from "./components/StartLoader";
 
 const App = () => {
-  
   return (
-      <>      
-    <Provider store={store}>
-      <BrowserRouter>
-        <div className="App">
-          <Navbar />
-          <Switch>
-            <Route exact path="/" component={Dashboard} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/spinner" component={Spinner} />
-            <Route path="/:generic_site" component={Generic} />
-          </Switch>      
-            
-        </div>
-      </BrowserRouter>
-    </Provider>
-  
-  </>
+    <>
+      <Provider store={store}>
+        <BrowserRouter>
+          <div className="App">
+            <Navbar />
+            <Switch>
+              <Route exact path="/" component={Dashboard} />
+              <Route exact path="/about" component={About} />
+              <Route exact path="/spinner" component={Spinner} />
+              <Route path="/:generic_site" component={Generic} />
+            </Switch>
+          </div>
+        </BrowserRouter>
+      </Provider>
+    </>
   );
 };
 
