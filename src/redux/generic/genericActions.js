@@ -8,8 +8,6 @@ import {
 } from "./genericTypes";
 
 import { clistApiKey } from "../../auth/secret";
-import { clistUrl } from "../../auth/secret";
-import { proxyURL } from "../../auth/secret";
 import { addDays } from "../../utils/addDays";
 import { epochCalculation } from "../../utils/epochCalculation";
 

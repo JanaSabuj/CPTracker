@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { fetchUsers } from "../redux/generic/genericActions";
 import { connect } from "react-redux";
 import Spinner from "./Spinner";

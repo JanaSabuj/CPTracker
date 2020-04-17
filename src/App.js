@@ -14,19 +14,18 @@ import { Provider } from "react-redux";
 import Spinner from "./components/Spinner";
 import { Planets } from "react-preloaders";
 
-import { proxyURL } from "./auth/secret";
-
 const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/todos/1")
+    fetch("/users")
       .then(response => response.json())
       .then(json => {
         setLoading(false);
       })
       .catch(err => {
         console.log(err);
+        
       });
 
     const sidenav = document.querySelector("#slide-out");

@@ -1,7 +1,6 @@
 import React from "react";
 import Moment from "react-moment";
 import "moment-timezone";
-import ReactDOM from "react-dom";
 import Countdown from "react-countdown";
 
 import { epochCalculation } from "../utils/epochCalculation";
