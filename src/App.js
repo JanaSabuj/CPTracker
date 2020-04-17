@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
@@ -12,7 +12,6 @@ import Generic from "./components/Generic";
 import store from "./redux/store";
 import { Provider } from "react-redux";
 import Spinner from "./components/Spinner";
-import axios from "axios";
 import { Planets } from "react-preloaders";
 
 import { proxyURL } from "./auth/secret";
