@@ -13,6 +13,7 @@ import store from "./redux/store";
 import { Provider } from "react-redux";
 import Spinner from "./components/Spinner";
 import { Planets } from "react-preloaders";
+import StartLoader from "./components/StartLoader";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -22,17 +23,20 @@ const App = () => {
       .then(response => response.json())
       .then(json => {
         setLoading(false);
+        
+    const sidenav = document.querySelector("#slide-out");
+    M.Sidenav.init(sidenav, {});
       })
       .catch(err => {
         console.log(err);
         
       });
 
-    const sidenav = document.querySelector("#slide-out");
-    M.Sidenav.init(sidenav, {});
   }, []);
 
   return (
+      <>
+      {loading ? <StartLoader />  : 
     <Provider store={store}>
       <BrowserRouter>
         <div className="App">
@@ -42,11 +46,13 @@ const App = () => {
             <Route exact path="/about" component={About} />
             <Route exact path="/spinner" component={Spinner} />
             <Route path="/:generic_site" component={Generic} />
-          </Switch>
-          <Planets customLoading={loading} background="#141420" color={'#f7f7f7'} />
+          </Switch>      
+            
         </div>
       </BrowserRouter>
     </Provider>
+  }
+  </>
   );
 };
 
