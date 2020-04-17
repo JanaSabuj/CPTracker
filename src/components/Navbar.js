@@ -1,11 +1,20 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-
+import M from "materialize-css/dist/js/materialize.min.js";
 import SidenavLink from "./SideNavLink";
 
 const Navbar = props => {
   const { names } = props;
+
+    useEffect(() => {
+    
+    const sidenav = document.querySelector("#slide-out");
+    M.Sidenav.init(sidenav, {});
+      
+
+  }, []);
+
 
   const styleNavbar = {
     fontFamily: "Bungee"

@@ -19,13 +19,12 @@ const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+       
     fetch("/users")
       .then(response => response.json())
       .then(json => {
         setLoading(false);
-        
-    const sidenav = document.querySelector("#slide-out");
-    M.Sidenav.init(sidenav, {});
+    
       })
       .catch(err => {
         console.log(err);
@@ -36,7 +35,7 @@ const App = () => {
 
   return (
       <>
-      {loading ? <StartLoader />  : 
+      {loading ?<Planets background="#141420"   color='#f7f7f7'  /> : 
     <Provider store={store}>
       <BrowserRouter>
         <div className="App">
