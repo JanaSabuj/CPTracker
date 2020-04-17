@@ -16,26 +16,9 @@ import { Planets } from "react-preloaders";
 import StartLoader from "./components/StartLoader";
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-       
-    fetch("/users")
-      .then(response => response.json())
-      .then(json => {
-        setLoading(false);
-    
-      })
-      .catch(err => {
-        console.log(err);
-        
-      });
-
-  }, []);
-
+  
   return (
-      <>
-      {loading ?<Planets background="#141420"   color='#f7f7f7'  /> : 
+      <>      
     <Provider store={store}>
       <BrowserRouter>
         <div className="App">
@@ -50,7 +33,7 @@ const App = () => {
         </div>
       </BrowserRouter>
     </Provider>
-  }
+  
   </>
   );
 };
