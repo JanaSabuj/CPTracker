@@ -23,10 +23,10 @@ export const fetchUsers = name => {
     ];
 
     const left_date = left_arr.join("-");
-    const URI2 =
-      proxyURL +
-      clistUrl +
-      "contest/?resource__id=" +
+    // const URI2 =
+    //   proxyURL +
+    //   clistUrl +
+     const URI2 =  "/contest/?resource__id=" +
       resource__id +
       "&start__gte=" +
       left_date +
@@ -63,8 +63,9 @@ export const fetchUsers = name => {
     dispatch(setLocalContest(siteName.toLowerCase(), tempObj));
   };
 
-  const URI1 =
-    proxyURL + clistUrl + "resource/?name__iregex=" + name + "&" + clistApiKey;
+//   const URI1 =
+    // proxyURL + clistUrl +
+     const URI1 = "/resource/?name__iregex=" + name + "&" + clistApiKey;
   return dispatch => {
     dispatch(fetchUsersRequest());
     axios

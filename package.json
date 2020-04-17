@@ -21,6 +21,7 @@
     "redux-thunk": "2.3.0"
   },
   "devDependencies": {
+    "http-proxy-middleware": "^1.0.3",
     "typescript": "3.3.3"
   },
   "scripts": {
