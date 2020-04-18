@@ -3,13 +3,13 @@ import React, { Fragment, useState } from "react";
 const About = () => {
   const [buttonLink, setButtonLink] = useState("");
   const styleAbout = {
-    fontSize: "20px"
+    fontSize: "20px",
   };
 
   const styleName = {
     fontFamily: "Megrim",
     fontSize: "30px",
-    fontWeight: "bold"
+    fontWeight: "bold",
   };
 
   const githubClick = () => {

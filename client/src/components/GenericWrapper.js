@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import GenericContest from "./GenericContest";
 import NoContest from "./NoContest";
 
-const GenericWrapper = props => {
+const GenericWrapper = (props) => {
   const [localState, setLocalState] = useState([]);
   const [isDataPresent, setIsDataPresent] = useState(true);
   const { data, contestType, contestName } = props;
@@ -40,7 +40,7 @@ const GenericWrapper = props => {
       ) : !isDataPresent ? (
         <NoContest contestName={contestName} contestType={contestType} />
       ) : (
-        localState.map(contest => (
+        localState.map((contest) => (
           <GenericContest
             key={contest.id}
             contest={contest}

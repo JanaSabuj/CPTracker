@@ -7,7 +7,6 @@ const Spinner = () => {
       <div className="col s12 m6">
         <div className="card brown darken-1">
           <div className="card-content white-text">
-            {/* <img src="../../img/bean.gif" alt="windmill" /> */}
             <div className="lds-hourglass" />
             <div className="divider brown darken-1"> </div>
             <span className="card-title">

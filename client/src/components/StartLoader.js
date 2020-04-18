@@ -2,11 +2,6 @@ import React from "react";
 
 const StartLoader = () => {
   return (
-    // <div className="Container">
-    //   <div class="lds-heart">
-    //     <div></div>
-    //   </div>
-    // </div>
     <div className="container">
       <div className="row" style={{ height: "150px" }}></div>
       <div className="row">

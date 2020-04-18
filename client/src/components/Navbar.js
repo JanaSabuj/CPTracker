@@ -1,23 +1,18 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import M from "materialize-css/dist/js/materialize.min.js";
 import SidenavLink from "./SideNavLink";
 
-const Navbar = props => {
+const Navbar = (props) => {
   const { names } = props;
-
-    useEffect(() => {
-    
+  useEffect(() => {
     const sidenav = document.querySelector("#slide-out");
     M.Sidenav.init(sidenav, {});
-      
-
   }, []);
 
-
   const styleNavbar = {
-    fontFamily: "Bungee"
+    fontFamily: "Bungee",
   };
 
   return (
@@ -69,13 +64,13 @@ const Navbar = props => {
         </li>
 
         {names.length &&
-          names.map(el => <SidenavLink key={el.id} name={el.name} />)}
+          names.map((el) => <SidenavLink key={el.id} name={el.name} />)}
 
         <li>
           <div className="divider" />
         </li>
         <li>
-          <NavLink to="/about" >
+          <NavLink to="/about">
             <i className="small material-icons red-text pulse">favorite</i>
             Built by
             <span className="red-text"> Sabuj Jana</span>
@@ -86,9 +81,9 @@ const Navbar = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    names: state.dashboardReducer.names
+    names: state.dashboardReducer.names,
   };
 };
 

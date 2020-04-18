@@ -6,7 +6,7 @@ import Countdown from "react-countdown";
 import { epochCalculation } from "../utils/epochCalculation";
 import { durationModified } from "../utils/durationModified";
 
-const GenericContest = props => {
+const GenericContest = (props) => {
   const { contest, contestType } = props;
   const { duration, end, event, href, start } = contest;
   const { startDate, endDate } = epochCalculation(start, end);
@@ -14,10 +14,8 @@ const GenericContest = props => {
   const cssColors = {
     live: "green lighten-2",
     past: "red accent-1",
-    future: "yellow lighten-2"
+    future: "yellow lighten-2",
   };
-
-  // const contestStatus = contestStatusCalculation(startEpoch, endEpoch, presentEpoch)
 
   return (
     <div className={"card " + cssColors[contestType] + " hoverable"}>
@@ -44,12 +42,7 @@ const GenericContest = props => {
           {contestType === "future" && (
             <>
               <span style={{ fontWeight: "bold" }}> Countdown: </span>
-              <Countdown
-                date={startDate}
-                intervalDelay={0}
-                precision={3}
-                // renderer={props => <div>{props.total}</div>}
-              />
+              <Countdown date={startDate} intervalDelay={0} precision={3} />
               <br />
             </>
           )}
