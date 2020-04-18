@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./styles.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
@@ -8,37 +8,51 @@ import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Dashboard from "./components/Dashboard";
 import Generic from "./components/Generic";
+import StartLoader from "./components/StartLoader";
 
 import store from "./redux/store";
 import { Provider } from "react-redux";
 import Spinner from "./components/Spinner";
+import Error from "./components/Error";
 
 const App = () => {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
   useEffect(() => {
     axios
-      .get("/resource123?name=sabuj&surname=jana")
+      .get("/resource123")
       .then((res) => {
         console.log(res);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
+        setLoading(false);
+        setError(true);
       });
   }, []);
   return (
     <>
-      <Provider store={store}>
-        <BrowserRouter>
-          <div className="App">
-            <Navbar />
-            <Switch>
-              <Route exact path="/" component={Dashboard} />
-              <Route exact path="/about" component={About} />
-              <Route exact path="/spinner" component={Spinner} />
-              <Route path="/:generic_site" component={Generic} />
-            </Switch>
-          </div>
-        </BrowserRouter>
-      </Provider>
+      {loading ? (
+        <StartLoader />
+      ) : error ? (
+        <Error message="The server is sending WA!! Please reattempt " />
+      ) : (
+        <Provider store={store}>
+          <BrowserRouter>
+            <div className="App">
+              <Navbar />
+              <Switch>
+                <Route exact path="/" component={Dashboard} />
+                <Route exact path="/about" component={About} />
+                <Route exact path="/spinner" component={Spinner} />
+                <Route path="/:generic_site" component={Generic} />
+              </Switch>
+            </div>
+          </BrowserRouter>
+        </Provider>
+      )}
     </>
   );
 };
