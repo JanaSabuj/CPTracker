@@ -7,7 +7,7 @@ const apiKey =
   "username=greenindia&api_key=76c2d504abf96ea66ee78d28791decfd68ce9443";
 
 // Serve static files from the React app
-// app.use(express.static(path.join(__dirname, 'client/build')));
+// app.use(express.static(path.join(__dirname, "client/build")));
 
 app.get("/resource*", (req, res) => {
   axios
@@ -44,9 +44,9 @@ app.get("/contest*", (req, res) => {
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname+'/client/build/index.html'));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
+});
 
 // const port = process.env.PORT || 5000;
 const port = 5000;
