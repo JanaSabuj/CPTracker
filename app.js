@@ -1,41 +1,46 @@
-const express = require('express')
-const path = require('path');
-const axios = require('axios')
-const app = express()
+const express = require("express");
+const path = require("path");
+const axios = require("axios");
+const app = express();
+
+const apiKey =
+  "username=greenindia&api_key=76c2d504abf96ea66ee78d28791decfd68ce9443";
 
 // Serve static files from the React app
 // app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get('/', (req, res) => res.send('Hello World!'))
-// app.get('/new', (req, res) => res.send('My new route'))
-app.get('/resource123*', (req, res) => {
-axios
-  .get('https://api.adviceslip.com/advice')
-  .then(response => {
-    console.log(req, 'HIIIIIIIIIIIIIIIIIIIIIIII');
-    console.log(`statusCode: ${res.statusCode}`)
-    console.log(response)
-    res.send(response.data)
-  })
-  .catch(error => {
-    console.error(error)
-    res.send('Server is 404')    
-  })
-})
+app.get("/resource*", (req, res) => {
+  axios
+    .get(
+      `https://clist.by:443/api/v1/json/resource/?name__iregex=${req.query.name__iregex}&${apiKey}`
+    )
+    .then((response) => {
+      console.log(`statusCode: ${res.statusCode}`);
+      console.log(response);
+      res.send(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.send("Server is 404");
+    });
+});
 
-app.get('/contest', (req, res) => {
-axios
-  .get('https://api.adviceslip.com/advice')
-  .then(response => {
-    console.log(`statusCode: ${res.statusCode}`)
-    console.log(response)
-    res.send(response.data)
-  })
-  .catch(error => {
-    console.error(error)
-    res.send('Server is 404')    
-  })
-})
+app.get("/contest*", (req, res) => {
+  axios
+    .get(
+      `https://clist.by:443/api/v1/json/contest/?resource__id=${req.query.resource__id}&start__gte=${req.query.start__gte}&order_by=${req.query.order_by}&${apiKey}`
+    )
+    .then((response) => {
+      console.log(req.query, "HIIIIIIIIIIIIIIIIIIIIIIII");
+      console.log(`statusCode: ${res.statusCode}`);
+      console.log(response);
+      res.send(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.send("Server is 404");
+    });
+});
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
@@ -43,7 +48,8 @@ axios
 //   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 // });
 
-
 // const port = process.env.PORT || 5000;
 const port = 5000;
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+app.listen(port, () =>
+  console.log(`Example app listening at http://localhost:${port}`)
+);

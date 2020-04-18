@@ -7,12 +7,8 @@ import {
   SET_LOCAL_CONTEST,
 } from "./genericTypes";
 
-import { clistApiKey } from "../../auth/secret";
 import { addDays } from "../../utils/addDays";
 import { epochCalculation } from "../../utils/epochCalculation";
-
-import { proxyURL } from "../../auth/secret";
-import { clistUrl } from "../../auth/secret";
 
 export const fetchUsers = (name) => {
   const nextURLfetch = (resource__id) => {
@@ -20,24 +16,16 @@ export const fetchUsers = (name) => {
     const left_arr = [
       left_limit.getFullYear(),
       left_limit.getMonth() + 1,
-      left_limit.getDay(),
+      (left_limit.getDay() % 26) + 1,
     ];
 
     const left_date = left_arr.join("-");
-    const URI2 = "/contest";
-    // proxyURL +
-    // clistUrl +
-    //  "/contest/?resource__id=" +
-    // resource__id +
-    // "&start__gte=" +
-    // left_date +
-    // "T00:00:00" +
-    // "&order_by=-start" +
-    // "&" +
-    // clistApiKey;
-
+    console.log(left_date);
+    const URI2 = `/contest?resource__id=${resource__id}&start__gte=${
+      left_date + "T00:00:00"
+    }&order_by=-start`;
+    console.log(URI2, "from client");
     return URI2;
-    //https://clist.by:443/api/v1/contest/?resource__id=2&start__gte=2019-10-18T00%3A00%3A00&order_by=start
   };
 
   const segregateContests = (allContests, siteName, dispatch) => {
@@ -45,8 +33,7 @@ export const fetchUsers = (name) => {
       live: [],
       past: [],
       future: [],
-    }; // will be named codechef later
-
+    };
     for (let i = 0; i < allContests.length; i++) {
       const { end, start } = allContests[i];
       const { startEpoch, endEpoch, presentEpoch } = epochCalculation(
@@ -57,38 +44,30 @@ export const fetchUsers = (name) => {
       if (presentEpoch < startEpoch) tempObj["future"].push(allContests[i]);
       else if (presentEpoch <= endEpoch) tempObj["live"].push(allContests[i]);
       else tempObj["past"].push(allContests[i]);
-      // console.log(tempObj);
-      // console.log(props.siteName.toLowerCase());
     }
     tempObj["future"].reverse();
     dispatch(setLocalContest(siteName.toLowerCase(), tempObj));
   };
 
-  const URI1 = "/resource123";
-  // proxyURL + clistUrl +
-  // "/resource/?name__iregex=" + name + "&" + clistApiKey;
+  const URI1 = `/resource?name__iregex=${name}`;
   return (dispatch) => {
     dispatch(fetchUsersRequest());
     axios
       .get(URI1)
       .then((response) => {
         const resource = response.data;
-        console.log(resource, "hiiiiii");
         const resArr = resource.objects;
         let lenRes = resArr.length;
         const resource__id = resArr[lenRes - 1].id;
+
         // next axios
         const URI2 = nextURLfetch(resource__id);
-        // console.log(URI2, "step2");
         return axios.get(URI2);
       })
       .then((response) => {
-        console.log(response.data, "hiiiiii2");
         const allContests = response.data.objects;
-        // console.log(allContests, "final");
         dispatch(setSiteName(name));
         segregateContests(allContests, name, dispatch);
-        // dispatch(fetchUsersSuccess(allContests));
       })
       .catch((error) => {
         // error.message is the error message

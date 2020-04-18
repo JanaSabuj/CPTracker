@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./styles.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import M from "materialize-css/dist/js/materialize.min.js";
-import axios from 'axios'
+import axios from "axios";
 
 import Navbar from "./components/Navbar";
 import About from "./components/About";
@@ -13,19 +12,18 @@ import Generic from "./components/Generic";
 import store from "./redux/store";
 import { Provider } from "react-redux";
 import Spinner from "./components/Spinner";
-import { Planets } from "react-preloaders";
-import StartLoader from "./components/StartLoader";
 
 const App = () => {
   useEffect(() => {
-    axios.get('/resource123')
-    .then(res => {
-      console.log(res);
-    })
-    .catch(err => {
-      console.log(err);
-    })
-  }, [])
+    axios
+      .get("/resource123?name=sabuj&surname=jana")
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <>
       <Provider store={store}>
