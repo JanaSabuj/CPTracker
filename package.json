@@ -4,7 +4,7 @@
   "description": "The ultimate coding contest tracker on the Internet",
   "main": "app.js",
   "scripts": {
-    "start": "node app",
+    "start": "node app.js",
     "app": "nodemon app",
     "client": "cd client && npm run start",
     "dev": "concurrently \"npm run app\" \"npm run client\"",

@@ -7,7 +7,7 @@ const apiKey =
   "username=greenindia&api_key=76c2d504abf96ea66ee78d28791decfd68ce9443";
 
 // Serve static files from the React app
-// app.use(express.static(path.join(__dirname, "client/build")));
+app.use(express.static(path.join(__dirname, "client/build")));
 
 app.get("/resource*", (req, res) => {
   axios
@@ -48,8 +48,8 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 
-// const port = process.env.PORT || 5000;
-const port = 5000;
+const port = process.env.PORT || 5000;
+// const port = 5000;
 app.listen(port, () =>
   console.log(`Example app listening at http://localhost:${port}`)
 );
