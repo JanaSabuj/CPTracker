@@ -1,17 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const IntroCard = props => {
+const IntroCard = (props) => {
   const sites = props.info;
   const imgPath = [
     `../img/${sites.name[0]}.png`,
-    `../img/${sites.name[1]}.png`
+    `../img/${sites.name[1]}.png`,
   ];
   const styleName = { fontFamily: "Bungee", fontSize: "20px" };
   return (
     <>
       <div className="row">
-        <div className="col s12 m1" />
+        <div className="col s0 m1" />
         <div className="col s12 m5">
           <div className="card-panel brown lighten-5 z-depth-1 hoverable">
             <div className="row valign-wrapper">
@@ -63,7 +63,7 @@ const IntroCard = props => {
             </div>
           </div>
         </div>
-        <div className="col s12 m1" />
+        <div className="col s0 m1" />
       </div>
     </>
   );

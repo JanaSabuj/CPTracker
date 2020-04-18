@@ -8,7 +8,7 @@ import GenericWrapper from "./GenericWrapper";
 import { setSiteName } from "../redux/generic/genericActions";
 import Error from "../components/Error";
 
-const Generic = props => {
+const Generic = (props) => {
   useEffect(() => {
     const site_name = props.match.params.generic_site;
 
@@ -33,10 +33,10 @@ const Generic = props => {
   const subLinkStyle = {
     // fontWeight: "bold",
     fontFamily: "Oxygen",
-    color: "black"
+    color: "black",
   };
 
-  const GenericWrapperWithPropsFuture = props1 => {
+  const GenericWrapperWithPropsFuture = (props1) => {
     return (
       <GenericWrapper
         data={props.localStorage}
@@ -47,7 +47,7 @@ const Generic = props => {
     );
   };
 
-  const GenericWrapperWithPropsLive = props1 => {
+  const GenericWrapperWithPropsLive = (props1) => {
     return (
       <GenericWrapper
         data={props.localStorage}
@@ -58,7 +58,7 @@ const Generic = props => {
     );
   };
 
-  const GenericWrapperWithPropsPast = props1 => {
+  const GenericWrapperWithPropsPast = (props1) => {
     return (
       <GenericWrapper
         data={props.localStorage}
@@ -77,8 +77,8 @@ const Generic = props => {
         <Error message={props.error} />
       ) : (
         <div className="row">
-          <div className="col s1 m3"> </div>
-          <div className="col s10 m6">
+          <div className="col s0 m3"> </div>
+          <div className="col s11 m6">
             <div className="card brown darken-1 hoverable">
               <div className="card-content white-text">
                 <i className="small material-icons yellow-text">location_on</i>
@@ -121,32 +121,29 @@ const Generic = props => {
               render={GenericWrapperWithPropsPast}
             />
           </div>
-          <div className="col s1 m3"> </div>
+          <div className="col s0 m3"> </div>
         </div>
       )}
     </>
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     siteName: state.genericReducer.siteName,
     siteInfo: state.genericReducer.siteInfo,
     loading: state.genericReducer.loading,
     localStorage: state.genericReducer.localStorage,
-    error: state.genericReducer.error
+    error: state.genericReducer.error,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    fetchUsers: name => dispatch(fetchUsers(name)),
+    fetchUsers: (name) => dispatch(fetchUsers(name)),
     setLocalContest: (name, data) => dispatch(setLocalContest(name, data)),
-    setSiteName: name => dispatch(setSiteName(name))
+    setSiteName: (name) => dispatch(setSiteName(name)),
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Generic);
+export default connect(mapStateToProps, mapDispatchToProps)(Generic);

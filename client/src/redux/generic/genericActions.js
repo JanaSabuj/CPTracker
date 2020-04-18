@@ -20,11 +20,9 @@ export const fetchUsers = (name) => {
     ];
 
     const left_date = left_arr.join("-");
-    console.log(left_date);
     const URI2 = `/contest?resource__id=${resource__id}&start__gte=${
       left_date + "T00:00:00"
     }&order_by=-start`;
-    console.log(URI2, "from client");
     return URI2;
   };
 

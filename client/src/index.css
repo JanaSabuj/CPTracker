@@ -18,8 +18,8 @@ body {
 .lds-hourglass {
   display: inline-block;
   position: relative;
-  width: 100px;
-  height: 100px;
+  /* width: 0px; */
+  /* height: 100px; */
 }
 .lds-hourglass:after {
   content: " ";

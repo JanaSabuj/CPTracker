@@ -23,7 +23,6 @@ const App = () => {
     axios
       .get("/resource123")
       .then((res) => {
-        console.log(res);
         setLoading(false);
       })
       .catch((err) => {
