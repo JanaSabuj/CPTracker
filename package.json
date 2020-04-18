@@ -8,7 +8,7 @@
     "app": "nodemon app",
     "client": "cd client && npm run start",
     "dev": "concurrently \"npm run app\" \"npm run client\"",
-    "heroku-postbuild": "cd client && yarn && yarn run build"
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",

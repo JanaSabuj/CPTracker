@@ -15,12 +15,12 @@ app.get("/resource*", (req, res) => {
       `https://clist.by:443/api/v1/json/resource/?name__iregex=${req.query.name__iregex}&${apiKey}`
     )
     .then((response) => {
-      console.log(`statusCode: ${res.statusCode}`);
-      console.log(response);
+      // console.log(`statusCode: ${res.statusCode}`);
+      // console.log(response);
       res.send(response.data);
     })
     .catch((error) => {
-      console.error(error);
+      // console.error(error);
       res.send("Server is 404");
     });
 });
@@ -31,13 +31,13 @@ app.get("/contest*", (req, res) => {
       `https://clist.by:443/api/v1/json/contest/?resource__id=${req.query.resource__id}&start__gte=${req.query.start__gte}&order_by=${req.query.order_by}&${apiKey}`
     )
     .then((response) => {
-      console.log(req.query, "HIIIIIIIIIIIIIIIIIIIIIIII");
-      console.log(`statusCode: ${res.statusCode}`);
-      console.log(response);
+      // console.log(req.query, "HIIIIIIIIIIIIIIIIIIIIIIII");
+      // console.log(`statusCode: ${res.statusCode}`);
+      // console.log(response);
       res.send(response.data);
     })
     .catch((error) => {
-      console.error(error);
+      // console.error(error);
       res.send("Server is 404");
     });
 });
