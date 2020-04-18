@@ -2,8 +2,9 @@
   "name": "cp-tracker",
   "version": "1.0.0",
   "description": "",
+  "proxy": "http://localhost:5000/",
   "keywords": [],
-  "main": "src/index.js",
+  "main": "src/index.js",  
   "dependencies": {
     "axios": "0.19.2",
     "materialize-css": "1.0.0",
@@ -19,14 +20,10 @@
     "react-scripts": "3.0.1",
     "redux": "4.0.5",
     "redux-thunk": "2.3.0"
-  },
-  "devDependencies": {
-    "http-proxy-middleware": "^1.0.3",
-    "typescript": "3.3.3"
-  },
+  },  
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && echo '/* /index.html  200' | cat >build/_redirects ",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },

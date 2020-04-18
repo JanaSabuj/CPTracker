@@ -1,0 +1,29 @@
+{
+  "name": "cptracker",
+  "version": "1.0.0",
+  "description": "The ultimate coding contest tracker on the Internet",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "client": "cd client && npm run start",
+    "dev": "concurrently \"npm run start\" \"npm run client\"",
+    "heroku-postbuild": "cd client && yarn && yarn run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JanaSabuj/CPTracker.git"
+  },
+  "author": "Sabuj Jana",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JanaSabuj/CPTracker/issues"
+  },
+  "homepage": "https://github.com/JanaSabuj/CPTracker#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  }
+}

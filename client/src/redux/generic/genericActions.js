@@ -4,37 +4,37 @@ import {
   FETCH_USERS_SUCCESS,
   FETCH_USERS_FAILURE,
   SET_SITE_NAME,
-  SET_LOCAL_CONTEST
+  SET_LOCAL_CONTEST,
 } from "./genericTypes";
 
 import { clistApiKey } from "../../auth/secret";
 import { addDays } from "../../utils/addDays";
 import { epochCalculation } from "../../utils/epochCalculation";
 
-import {proxyURL} from '../../auth/secret'
-import {clistUrl} from '../../auth/secret'
+import { proxyURL } from "../../auth/secret";
+import { clistUrl } from "../../auth/secret";
 
-export const fetchUsers = name => {
-  const nextURLfetch = resource__id => {
+export const fetchUsers = (name) => {
+  const nextURLfetch = (resource__id) => {
     const left_limit = addDays(Date(), -90);
     const left_arr = [
       left_limit.getFullYear(),
       left_limit.getMonth() + 1,
-      left_limit.getDay()
+      left_limit.getDay(),
     ];
 
     const left_date = left_arr.join("-");
-    const URI2 =
-      proxyURL +
-      clistUrl +
-       "/contest/?resource__id=" +
-      resource__id +
-      "&start__gte=" +
-      left_date +
-      "T00:00:00" +
-      "&order_by=-start" +
-      "&" +
-      clistApiKey;
+    const URI2 = "/contest";
+    // proxyURL +
+    // clistUrl +
+    //  "/contest/?resource__id=" +
+    // resource__id +
+    // "&start__gte=" +
+    // left_date +
+    // "T00:00:00" +
+    // "&order_by=-start" +
+    // "&" +
+    // clistApiKey;
 
     return URI2;
     //https://clist.by:443/api/v1/contest/?resource__id=2&start__gte=2019-10-18T00%3A00%3A00&order_by=start
@@ -44,7 +44,7 @@ export const fetchUsers = name => {
     let tempObj = {
       live: [],
       past: [],
-      future: []
+      future: [],
     }; // will be named codechef later
 
     for (let i = 0; i < allContests.length; i++) {
@@ -64,15 +64,16 @@ export const fetchUsers = name => {
     dispatch(setLocalContest(siteName.toLowerCase(), tempObj));
   };
 
-  const URI1 =
-    proxyURL + clistUrl +
-     "/resource/?name__iregex=" + name + "&" + clistApiKey;
-  return dispatch => {
+  const URI1 = "/resource123";
+  // proxyURL + clistUrl +
+  // "/resource/?name__iregex=" + name + "&" + clistApiKey;
+  return (dispatch) => {
     dispatch(fetchUsersRequest());
     axios
       .get(URI1)
-      .then(response => {
+      .then((response) => {
         const resource = response.data;
+        console.log(resource, "hiiiiii");
         const resArr = resource.objects;
         let lenRes = resArr.length;
         const resource__id = resArr[lenRes - 1].id;
@@ -81,14 +82,15 @@ export const fetchUsers = name => {
         // console.log(URI2, "step2");
         return axios.get(URI2);
       })
-      .then(response => {
+      .then((response) => {
+        console.log(response.data, "hiiiiii2");
         const allContests = response.data.objects;
         // console.log(allContests, "final");
         dispatch(setSiteName(name));
         segregateContests(allContests, name, dispatch);
         // dispatch(fetchUsersSuccess(allContests));
       })
-      .catch(error => {
+      .catch((error) => {
         // error.message is the error message
         dispatch(
           fetchUsersFailure(
@@ -101,34 +103,34 @@ export const fetchUsers = name => {
 
 export const fetchUsersRequest = () => {
   return {
-    type: FETCH_USERS_REQUEST
+    type: FETCH_USERS_REQUEST,
   };
 };
 
-export const fetchUsersSuccess = info => {
+export const fetchUsersSuccess = (info) => {
   return {
     type: FETCH_USERS_SUCCESS,
-    payload: info
+    payload: info,
   };
 };
 
-export const fetchUsersFailure = error => {
+export const fetchUsersFailure = (error) => {
   return {
     type: FETCH_USERS_FAILURE,
-    payload: error
+    payload: error,
   };
 };
 
-export const setSiteName = name => {
+export const setSiteName = (name) => {
   return {
     type: SET_SITE_NAME,
-    payload: name
+    payload: name,
   };
 };
 
 export const setLocalContest = (sitename, sitedata) => {
   return {
     type: SET_LOCAL_CONTEST,
-    payload: [sitename, sitedata]
+    payload: [sitename, sitedata],
   };
 };

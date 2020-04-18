@@ -3,6 +3,7 @@ import "./styles.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import M from "materialize-css/dist/js/materialize.min.js";
+import axios from 'axios'
 
 import Navbar from "./components/Navbar";
 import About from "./components/About";
@@ -16,6 +17,15 @@ import { Planets } from "react-preloaders";
 import StartLoader from "./components/StartLoader";
 
 const App = () => {
+  useEffect(() => {
+    axios.get('/resource123')
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }, [])
   return (
     <>
       <Provider store={store}>
