@@ -27,20 +27,20 @@ Youtube Link:
 
 Main Page
 ----
-[1](https://user-images.githubusercontent.com/39147514/79638955-2c89bd00-81a6-11ea-8c6f-ef1c5214e3ac.png)
+![1](https://user-images.githubusercontent.com/39147514/79638955-2c89bd00-81a6-11ea-8c6f-ef1c5214e3ac.png)
 
 Future
 ----
-[2](https://user-images.githubusercontent.com/39147514/79638957-2dbaea00-81a6-11ea-89bc-94c0f1cc6f08.png)
+![2](https://user-images.githubusercontent.com/39147514/79638957-2dbaea00-81a6-11ea-89bc-94c0f1cc6f08.png)
 
 Past
 ----
-[3](https://user-images.githubusercontent.com/39147514/79638958-2e538080-81a6-11ea-9ff3-d76255ced842.png)
+![3](https://user-images.githubusercontent.com/39147514/79638958-2e538080-81a6-11ea-9ff3-d76255ced842.png)
 
 Live
 ----
-[4](https://user-images.githubusercontent.com/39147514/79638959-2eec1700-81a6-11ea-9ac5-37d0a021653e.png)
+![4](https://user-images.githubusercontent.com/39147514/79638959-2eec1700-81a6-11ea-9ac5-37d0a021653e.png)
 
 About
 ----
-[5](https://user-images.githubusercontent.com/39147514/79638961-2eec1700-81a6-11ea-8850-f7549fc8d33f.png)
+![5](https://user-images.githubusercontent.com/39147514/79638961-2eec1700-81a6-11ea-8850-f7549fc8d33f.png)
