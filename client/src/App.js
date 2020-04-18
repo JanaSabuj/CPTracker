@@ -3,6 +3,7 @@ import "./styles.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import axios from "axios";
+import ReactGa from "react-ga";
 
 import Navbar from "./components/Navbar";
 import About from "./components/About";
@@ -20,6 +21,8 @@ const App = () => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
+    ReactGa.initialize("UA-163931581-1");
+    ReactGa.pageview(window.location.pathname + window.location.search);
     axios
       .get("/resource123")
       .then((res) => {
