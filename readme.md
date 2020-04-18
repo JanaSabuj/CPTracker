@@ -8,7 +8,6 @@ Live website link:
 This app will track and present the **Past, Live and Future contests** on the most popular sport programming sites.
 Youtube Link: 
 
-
 ### Supported sites
 ---
 1. Codeforces
@@ -24,6 +23,10 @@ Youtube Link:
 
 ***The 3 types of contests are split across 3 different routes. Each of them is colour coded for better user understanding.***
 ***Each contest has a link with which you can directly visit the specific programming site***
+
+Build
+----
+This app is built with **ReactJS** for frontend, **ExpressJS** for Cross-Origin API calls, **MaterializeCSS** for the UI library. It is deployed with ❤ on **Heroku**.
 
 Main Page
 ----
