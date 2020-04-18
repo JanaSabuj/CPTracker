@@ -26,7 +26,7 @@ This app will track and present the **Past, Live and Future contests** on the mo
 
 Build
 ----
-This app is built with **ReactJS** for frontend, **ExpressJS** for Cross-Origin API calls, **MaterializeCSS** for the UI library. It is deployed with ❤ on **Heroku**.
+This app is built with **ReactJS** for frontend, **ExpressJS** for Cross-Origin API calls, **MaterializeCSS** for the UI library. It is deployed with ❤ on **Heroku**. Special thanks to **clist.by API**  💕
 
 Main Page
 ----
