@@ -1,12 +1,12 @@
 ## CPTracker
 
 A very **warm** welcome to this app, my fellow coders!
-Live website link: 
+> Live website link: [CPtracker Live](https://cptracker.herokuapp.com/)
 
 ### About
 ---
 This app will track and present the **Past, Live and Future contests** on the most popular sport programming sites.
-Youtube Link: 
+> Youtube Link: [View on YouTube](https://www.youtube.com/watch?v=m_gIe9NLv-o&feature=youtu.be) 
 
 ### Supported sites
 ---
