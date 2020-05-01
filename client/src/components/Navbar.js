@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import M from "materialize-css/dist/js/materialize.min.js";
 import SidenavLink from "./SideNavLink";
 
+// https://medium.com/@hamza.el/react-materialize-sidenav-in-4-steps-7365f6176b09
+
 const Navbar = (props) => {
   const { names } = props;
   useEffect(() => {
