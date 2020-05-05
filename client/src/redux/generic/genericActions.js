@@ -57,7 +57,10 @@ export const fetchUsers = (name) => {
         const resArr = resource.objects;
         let lenRes = resArr.length;
         const resource__id = resArr[0].id;
-
+        // cf special
+        if(name.toLowerCase() === 'codeforces')
+          resource__id = 1;
+      
         // next axios
         const URI2 = nextURLfetch(resource__id);
         return axios.get(URI2);
