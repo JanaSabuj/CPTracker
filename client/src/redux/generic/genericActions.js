@@ -56,7 +56,7 @@ export const fetchUsers = (name) => {
         const resource = response.data;
         const resArr = resource.objects;
         let lenRes = resArr.length;
-        const resource__id = resArr[lenRes - 1].id;
+        const resource__id = resArr[0].id;
 
         // next axios
         const URI2 = nextURLfetch(resource__id);
