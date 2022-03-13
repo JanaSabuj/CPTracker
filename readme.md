@@ -2,7 +2,19 @@
 
 A very **warm** welcome to this app, my fellow coders!
 > Live website link: [CPtracker Live](https://cptracker.herokuapp.com/)
+## Getting Started
 
+First, run the development server:
+
+```bash
+npm install 
+cd client && npm install && cd .. 
+npm run dev
+# or
+yarn dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result
 ### About
 ---
 This app will track and present the **Past, Live and Future contests** on the most popular sport programming sites.
